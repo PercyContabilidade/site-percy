@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" type="image/png" href="https://percycontabilidade.github.io/consultoria/logo.png"/>
+
+    <meta property="og:title" content="Consultoria Nancy Rocha | Análise Premium" />
+    <meta property="og:description" content="Solicite sua análise de aposentadoria e reorganize sua vida financeira. Clique aqui." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://percycontabilidade.github.io/consultoria/logo.png" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+
+    <title>Consultoria Premium | Aposentadoria Plena</title>
+    <style>
+        :root {
+            --primary: #0f172a; /* Azul Marinho Executivo */
+            --accent: #c2410c; /* Laranja Tijolo */
+            --bg: #f1f5f9;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+            color: #334155;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background: var(--white);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-top: 6px solid var(--primary);
+        }
+
+        /* --- ESTILO DO CABEÇALHO COM FOTO --- */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 { color: var(--primary); font-size: 1.6rem; margin: 0 0 10px 0; }
+        
+        p.subtitle { color: #64748b; font-size: 1rem; line-height: 1.5; }
+
+        /* Destaque para o nome dela (CORRIGIDO PARA AZUL VIVO) */
+        .highlight-name {
+            color: #1d4ed8; /* Agora sim: um Azul Royal vibrante */
+            font-weight: 700;
+            display: block; 
+            margin-top: 5px;
+        }
+        /* ------------------------------------ */
+
+        .form-group { margin-bottom: 25px; }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        input[type="text"], input[type="email"], select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus { border-color: var(--primary); outline: none; }
+
+        .radio-group {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .radio-option:hover { background: #e2e8f0; }
+        .radio-option input { margin-right: 12px; transform: scale(1.2); }
+
+        button.btn-submit {
+            background-color: var(--primary);
+            color: white;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+            margin-top: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        button.btn-submit:hover { 
+            background-color: #1e293b; 
+            transform: translateY(-2px);
+        }
+
+        #campoProfissao { display: none; }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="Especialista Nancy Rocha" class="profile-photo">
+            
+            <h1>Mapeamento de Perfil</h1>
+            <p class="subtitle">
+                Planejamento Financeiro & Aposentadoria Plena.<br>
+                Preencha para receber uma pré-análise gratuita.
+                <span class="highlight-name">Por Nancy Rocha</span>
+            </p>
+        </header>
+
+        <form id="leadForm" onsubmit="processarFormulario(event)">
+            
+            <div class="form-group">
+                <label>Nome Completo:</label>
+                <input type="text" id="nome" required placeholder="Digite seu nome">
+            </div>
+
+            <div class="form-group">
+                <label>WhatsApp (com DDD):</label>
+                <input type="text" id="whatsapp" required placeholder="(XX) 99999-9999">
+            </div>
+
+            <div class="form-group">
+                <label>E-mail (Opcional):</label>
+                <input type="email" id="email" placeholder="seuemail@exemplo.com">
+            </div>
+
+            <div class="form-group">
+                <label>Qual sua situação atual?</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="situacao" value="Aposentado(a)" onclick="toggleProfissao(false)" checked> Já sou Aposentado(a).
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="situacao" value="Ativo" onclick="toggleProfissao(true)"> Ainda estou na Ativa / Outro.
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group" id="campoProfissao">
+                <label>Qual sua área de atuação?</label>
+                <input type="text" id="profissaoInput" placeholder="Ex: Professor, Jurídico, Saúde...">
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 30px 0;">
+            
+            <div class="form-group">
+                <label>1. Sobre o poder de compra da sua renda hoje:</label>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="p1" value="Reduziu Muito" required> Sinto que diminuiu bastante.</label>
+                    <label class="radio-option"><input type="radio" name="p1" value="Estável"> Está estável, mas requer atenção.</label>
+                    <label class="radio-option"><input type="radio" name="p1" value="Confortável"> Está confortável.</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>2. Você costuma verificar os detalhes da sua folha de pagamento?</label>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="p2" value="Sempre" required> Sim, acompanho mensalmente.</label>
+                    <label class="radio-option"><input type="radio" name="p2" value="As vezes"> Às vezes, mas tenho dúvidas em alguns códigos.</label>
+                    <label class="radio-option"><input type="radio" name="p2" value="Nunca"> Raramente verifico.</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>3. Qual seria seu principal objetivo financeiro hoje?</label>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="p3" value="Organizar Finanças" required> Reorganizar finanças e eliminar pendências.</label>
+                    <label class="radio-option"><input type="radio" name="p3" value="Qualidade de Vida"> Ter mais sobra mensal para lazer e família.</label>
+                    <label class="radio-option"><input type="radio" name="p3" value="Investir"> Criar uma reserva de segurança.</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Solicitar Análise Gratuita ➤</button>
+
+        </form>
+
+        <div class="footer-note">
+            Ambiente Seguro • Percy Contabilidade Digital
+        </div>
+    </div>
+
+    <script>
+        function toggleProfissao(mostrar) {
+            const campo = document.getElementById('campoProfissao');
+            if (mostrar) {
+                campo.style.display = 'block';
+                document.getElementById('profissaoInput').required = true;
+            } else {
+                campo.style.display = 'none';
+                document.getElementById('profissaoInput').required = false;
+                document.getElementById('profissaoInput').value = ''; 
+            }
+        }
+
+        function processarFormulario(e) {
+            e.preventDefault(); 
+
+            const nome = document.getElementById('nome').value;
+            const zap = document.getElementById('whatsapp').value;
+            const email = document.getElementById('email').value;
+            
+            const situacaoOpcao = document.querySelector('input[name="situacao"]:checked').value;
+            let perfilTexto = situacaoOpcao;
+            if(situacaoOpcao === "Ativo") {
+                perfilTexto = "Ativo - " + document.getElementById('profissaoInput').value;
+            }
+
+            const r1 = document.querySelector('input[name="p1"]:checked').value;
+            const r2 = document.querySelector('input[name="p2"]:checked').value;
+            const r3 = document.querySelector('input[name="p3"]:checked').value;
+
+            // --- CRM WHATSAPP (NÚMERO DA NANCY) ---
+            const telefoneConsultora = "5511955970701"; 
+
+            const mensagem = `*NOVA SOLICITAÇÃO - ANÁLISE PREMIUM*%0A%0A` +
+                `👤 *Nome:* ${nome}%0A` +
+                `📱 *Contato:* ${zap}%0A` +
+                `📧 *Email:* ${email}%0A` +
+                `💼 *Perfil:* ${perfilTexto}%0A%0A` +
+                `*Respostas do Mapeamento:*%0A` +
+                `1️⃣ Poder de Compra: ${r1}%0A` +
+                `2️⃣ Conferência Folha: ${r2}%0A` +
+                `3️⃣ Objetivo Principal: ${r3}`;
+
+            window.open(`https://wa.me/${telefoneConsultora}?text=${mensagem}`, '_blank');
+        }
+    </script>
+</body>
+</html>
