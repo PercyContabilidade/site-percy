@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lançamento Semente - Mestre</title>
+    <style>
+        :root {
+            --primary: #2c3e50; /* Azul Percy */
+            --accent: #8e2424; /* Vinho Percy */
+            --light: #f8f9fa;
+        }
+        body { font-family: sans-serif; margin: 0; display: flex; background: #f0f2f5; }
+        
+        /* Menu Lateral Fixo */
+        nav {
+            width: 250px;
+            background: var(--primary);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        nav h2 { font-size: 1.2rem; border-bottom: 1px solid #555; padding-bottom: 10px; }
+        nav ul { list-style: none; padding: 0; }
+        nav li { margin-bottom: 10px; }
+        nav a { 
+            color: #ccc; 
+            text-decoration: none; 
+            display: block; 
+            padding: 8px; 
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        nav a:hover { background: var(--accent); color: white; padding-left: 15px; }
+
+        /* Conteúdo Principal */
+        main {
+            margin-left: 250px; /* Espaço do menu */
+            padding: 40px;
+            width: 100%;
+        }
+
+        /* Cartões das Fases */
+        section {
+            background: white;
+            margin-bottom: 50px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent);
+        }
+        
+        h1 { color: var(--primary); }
+        h3 { color: var(--accent); margin-top: 0; }
+        
+        /* Exemplo de Estilo de Formulário interno */
+        .checklist-item {
+            background: #eee;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+        .checklist-item input { margin-right: 10px; }
+
+        /* Botão de Ação */
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h2>🚀 Mapa do Lançamento</h2>
+        <ul>
+            <li><a href="#doc1">1. Definição do Avatar</a></li>
+            <li><a href="#doc2">2. Pesquisa (Formulário)</a></li>
+            <li><a href="#doc3">3. Script Convite (Whats)</a></li>
+            <li><a href="#doc4">4. Cronograma de Aulas</a></li>
+            <li><a href="#doc5">5. Script de Vendas</a></li>
+            <li><a href="#doc6">6. Checklist Disparos</a></li>
+            <li><a href="#doc7">7. Debriefing (Pós)</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Projeto: {{NOME_DO_PROJETO}}</h1>
+        <p>Gestão de Lançamento Semente - Documento Mestre</p>
+        <hr><br>
+
+        <section id="doc1">
+            <h3>DOC 01: Definição do Avatar e Nicho</h3>
+            <p><strong>Objetivo:</strong> Definir quem é o cliente ideal antes de qualquer coisa.</p>
+            <div class="checklist-item">
+                <textarea style="width:100%; height:100px;" placeholder="Descreva aqui as dores do Avatar..."></textarea>
+            </div>
+        </section>
+
+        <section id="doc2">
+            <h3>DOC 02: Estrutura da Pesquisa</h3>
+            <p><strong>Objetivo:</strong> Validar o que o avatar quer comprar.</p>
+            <ul>
+                <li>Pergunta 1: Qual sua maior dificuldade hoje?</li>
+                <li>Pergunta 2: Se você tivesse uma varinha mágica...</li>
+            </ul>
+            <a href="#" class="btn">Gerar Link do Form</a>
+        </section>
+
+        <section id="doc3">
+            <h3>DOC 03: Script de Convite (WhatsApp)</h3>
+            <p><strong>Objetivo:</strong> Texto padrão para enviar no 1 a 1.</p>
+            <div style="background:#e5ddd5; padding:15px; border-radius:5px;">
+                <p><em>"Olá {{NOME_DO_LEAD}}, tudo bem? Aqui é o {{NOME_DO_ESPECIALISTA}}..."</em></p>
+            </div>
+        </section>
+
+        <section id="doc4">
+            <h3>DOC 04: Cronograma de Conteúdo</h3>
+            <p>Datas das Lives e temas.</p>
+            </section>
+
+        <section id="doc5">
+            <h3>DOC 05: Script de Vendas (Webinário)</h3>
+            <p>Roteiro passo a passo da oferta.</p>
+        </section>
+
+    </main>
+
+</body>
+</html>
