@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Diagnóstico MEI - Percy Contabilidade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --primary: #1a1a1a; --accent: #d4af37; }
+        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; color: #1a1a1a; }
+        .quiz-card { background: white; border-radius: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .option-btn { 
+            border: 2px solid #e5e7eb; border-radius: 1rem; padding: 1rem; width: 100%; 
+            text-align: left; transition: 0.3s; margin-bottom: 1rem; font-weight: 500;
+        }
+        .option-btn:hover { border-color: var(--accent); background-color: #fffdf5; }
+        .btn-vip { background-color: var(--primary); color: var(--accent); font-weight: bold; }
+        .btn-return { border: 2px solid var(--accent); color: var(--accent); font-weight: bold; }
+    </style>
+</head>
+<body class="py-10 px-4 min-h-screen flex items-center justify-center">
+
+    <div class="quiz-card w-full max-w-xl p-8 md:p-12">
+        <div class="text-center mb-10">
+            <img src="logopercyatual.jpeg" alt="Percy Logo" class="mx-auto w-24 rounded-full mb-4 border-2 border-[#d4af37]">
+            <h1 class="text-2xl font-bold">Diagnóstico MEI</h1>
+            <p class="text-gray-500">Descubra o melhor caminho para o seu negócio</p>
+        </div>
+
+        <div id="quiz-content">
+            <h2 class="text-lg font-bold mb-6 text-center">Qual o momento atual da sua empresa?</h2>
+            
+            <button onclick="mostrarResultado('formalizado')" class="option-btn">
+                🚀 Já sou MEI e quero crescer com segurança.
+            </button>
+            
+            <button onclick="mostrarResultado('informal')" class="option-btn">
+                💡 Trabalho por conta própria e quero me formalizar.
+            </button>
+            
+            <button onclick="mostrarResultado('irregular')" class="option-btn">
+                ⚠️ Tenho um MEI, mas está parado ou com dívidas.
+            </button>
+        </div>
+
+        <div id="resultado" class="hidden text-center">
+            <div id="res-msg" class="bg-yellow-50 p-6 rounded-2xl border-l-4 border-[#d4af37] mb-8 text-left">
+                </div>
+            
+            <a id="res-link" href="#" target="_blank" class="btn-vip block w-full py-4 rounded-xl shadow-lg mb-6 uppercase tracking-wider">
+                Falar com Dr. Percy
+            </a>
+
+            <div class="pt-6 border-t border-gray-100">
+                <button onclick="percyRetornoVip('https://percycontabilidade.github.io/consultoria/')" class="btn-return w-full py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-[#d4af37] hover:text-black transition">
+                    ⬅️ Voltar ao Hub Principal
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audioVip" src="https://assets.mixkit.co/active_storage/sfx/2358/2358-preview.mp3"></audio>
+
+    <script>
+        function mostrarResultado(perfil) {
+            const quiz = document.getElementById('quiz-content');
+            const res = document.getElementById('resultado');
+            const msg = document.getElementById('res-msg');
+            const link = document.getElementById('res-link');
+            const som = document.getElementById('audioVip');
+
+            // Toca o som no clique da opção
+            som.play();
+
+            quiz.classList.add('hidden');
+            res.classList.remove('hidden');
+
+            if(perfil === 'formalizado') {
+                msg.innerHTML = "<strong>Perfil Crescimento:</strong> Você precisa de gestão inteligente para não ultrapassar o limite e evitar multas. Vamos planejar seu próximo nível!";
+                link.href = "https://wa.me/5521985518475?text=Olá+Percy,+já+sou+MEI+e+quero+crescer.";
+            } else if(perfil === 'informal') {
+                msg.innerHTML = "<strong>Perfil Formalização:</strong> Chegou a hora de ter seu CNPJ, emitir notas e garantir sua aposentadoria. O projeto 'Cheguei, Sou MEI' é para você!";
+                link.href = "https://wa.me/5521985518475?text=Olá+Percy,+quero+me+formalizar.";
+            } else {
+                msg.innerHTML = "<strong>Perfil Regularização:</strong> Não deixe as dívidas acumularem no seu CPF. Vamos parcelar seus débitos e ativar seu CNPJ hoje.";
+                link.href = "https://percycontabilidade.github.io/guia-mei-percy/mei_inativo.html";
+                link.innerText = "Regularizar Meu MEI Agora";
+            }
+        }
+
+        function percyRetornoVip(url) {
+            const som = document.getElementById('audioVip');
+            som.play();
+            setTimeout(() => {
+                window.location.href = url;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
