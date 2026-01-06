@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título atualizado para refletir a campanha e a "Roma" -->
+    <title>Cheguei Sou MEI | Percy Contabilidade</title>
+    <!-- Tailwind CSS CDN para estilização rápida e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter para uma tipografia moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Chart.js para o gráfico interativo -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        .section-title {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 800; /* font-extrabold */
+            color: #115e59; /* teal-800 */
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .subsection-title {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: #0d9488; /* teal-600 */
+            margin-bottom: 1rem;
+        }
+        .card {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 1.5rem; /* rounded-3xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-700">
+
+    <!-- Cabeçalho (Header) - Barra de navegação fixa no topo -->
+    <header class="bg-white sticky top-0 z-50 shadow-md">
+        <nav class="container flex justify-end items-center py-4">
+            <!-- Links de navegação para as seções da página (somente em telas maiores) -->
+            <div class="md:flex space-x-6 text-slate-600 font-medium">
+                <a href="#servicos" class="hover:text-teal-600 transition-colors">Serviços</a>
+                <a href="#beneficios" class="hover:text-teal-600 transition-colors">Benefícios</a>
+                <a href="#perfil-mei" class="hover:text-teal-600 transition-colors">Perfil MEI</a>
+                <a href="#sobre" class="hover:text-teal-600 transition-colors">Sobre Nós</a>
+                <a href="#contato" class="hover:text-teal-600 transition-colors">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Seção Principal (Hero) - Conteúdo de destaque da página -->
+    <main class="py-20 text-center">
+        <div class="container">
+            <!-- Título principal ("Roma") -->
+            <h1 class="text-4xl md:text-6xl font-extrabold text-teal-800 leading-tight mb-4">
+                Cheguei Sou <span class="text-yellow-500">MEI</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto mb-8">
+                Deixe a burocracia com a gente e foque no crescimento do seu negócio. Formalização, declaração anual, parcelamento e mais.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <!-- Botão "Quero Formalizar" leva para o formulário de contato -->
+                <a href="#contato" class="bg-teal-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-teal-700 transition-colors transform hover:scale-105">
+                    Quero Formalizar Meu Negócio
+                </a>
+                <!-- Botão "Fale Conosco" leva para o WhatsApp -->
+                <a href="https://wa.me/5521985518475?text=Olá,%20gostaria%20de%20falar%20com%20um%20consultor%20sobre%20os%20serviços%20da%20Percy%20Contabilidade." class="bg-transparent border-2 border-teal-600 text-teal-600 font-bold py-3 px-8 rounded-full hover:bg-teal-50 transition-colors transform hover:scale-105" target="_blank">
+                    Fale Conosco no WhatsApp
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Seção de Serviços - Lista dos serviços oferecidos -->
+    <section id="servicos" class="py-20 bg-white">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços para MEI</h2>
+            <p class="text-center text-slate-500 mb-12 max-w-2xl mx-auto">
+                Oferecemos soluções completas para descomplicar sua jornada como Microempreendedor Individual.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card text-center">
+                    <div class="flex justify-center mb-4">
+                        <svg class="w-16 h-16 text-teal-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                    </div>
+                    <h3 class="subsection-title">Formalização</h3>
+                    <p class="text-slate-500">
+                        O primeiro passo para o sucesso. Auxiliamos você em todo o processo de formalização do seu negócio de forma rápida e segura.
+                    </p>
+                </div>
+                <div class="card text-center">
+                    <div class="flex justify-center mb-4">
+                        <svg class="w-16 h-16 text-teal-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2V9h2v8zm-2-9H8v8h2V8zm6 9h-2V8h2v9z"/></svg>
+                    </div>
+                    <h3 class="subsection-title">Declaração Anual</h3>
+                    <p class="text-slate-500">
+                        Não se preocupe com a data. Fazemos a sua Declaração Anual de Faturamento (DASN-SIMEI) para você ficar em dia com a Receita.
+                    </p>
+                </div>
+                <div class="card text-center">
+                    <div class="flex justify-center mb-4">
+                        <svg class="w-16 h-16 text-teal-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h-2V9h4v8z"/></svg>
+                    </div>
+                    <h3 class="subsection-title">Consultoria</h3>
+                    <p class="text-slate-500">
+                        Precisa de ajuda para gerenciar suas finanças? Oferecemos consultoria para otimizar seus resultados e crescer com segurança.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Benefícios - Destaques da empresa -->
+    <section id="beneficios" class="py-20 bg-gray-50">
+        <div class="container">
+            <h2 class="section-title">Por Que Escolher a Percy?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <img src="https://placehold.co/600x400/115e59/ffffff?text=Benefícios" alt="Benefícios da Percy Contabilidade" class="rounded-3xl shadow-xl">
+                </div>
+                <div>
+                    <ul class="space-y-6 text-slate-600">
+                        <li class="flex items-start">
+                            <svg class="w-8 h-8 text-teal-500 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5a.996.996 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.24 4.24c.39.39 1.02.39 1.41 0L20.5 7.74c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.2z"/></svg>
+                            <p>
+                                <span class="font-bold text-teal-800">Preço Justo:</span> Pacotes de serviços que cabem no seu bolso, sem surpresas no fim do mês.
+                            </p>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-8 h-8 text-teal-500 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5a.996.996 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.24 4.24c.39.39 1.02.39 1.41 0L20.5 7.74c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.2z"/></svg>
+                            <p>
+                                <span class="font-bold text-teal-800">Atendimento Personalizado:</span> Nosso time entende o seu negócio e oferece suporte dedicado por WhatsApp.
+                            </p>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-8 h-8 text-teal-500 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5a.996.996 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.24 4.24c.39.39 1.02.39 1.41 0L20.5 7.74c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.2z"/></svg>
+                            <p>
+                                <span class="font-bold text-teal-800">Tecnologia e Segurança:</span> Usamos as melhores ferramentas para garantir que seus dados estejam sempre seguros e acessíveis.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gráfico de Crescimento MEI - Exibição de dados com Chart.js -->
+    <section class="py-20 bg-white">
+        <div class="container">
+            <h2 class="section-title">Crescimento do MEI no Brasil</h2>
+            <p class="text-center text-slate-500 mb-8 max-w-2xl mx-auto">
+                Confira como o número de Microempreendedores Individuais tem crescido anualmente, mostrando a força e a importância da categoria para a economia.
+            </p>
+            <div class="bg-gray-100 p-8 rounded-3xl shadow-xl">
+                <canvas id="meiChart" class="w-full h-auto"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Perfil Estatístico do MEI - Informações estatísticas -->
+    <section id="perfil-mei" class="py-20 bg-gray-50">
+        <div class="container">
+            <h2 class="section-title">Perfil Estatístico do MEI</h2>
+            <p class="text-center text-slate-500 mb-8 max-w-2xl mx-auto">
+                Com base em dados recentes, construímos um perfil detalhado do Microempreendedor Individual no Brasil. Conheça as características do seu público e de você mesmo.
+            </p>
+            <div class="card p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="flex items-start">
+                        <svg class="w-12 h-12 text-teal-500 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                        <div>
+                            <h3 class="subsection-title">Perfil Demográfico</h3>
+                            <p class="text-slate-600">
+                                A maioria dos MEIs é uma pessoa entre <span class="font-bold text-teal-800">35 e 44 anos</span>, com ensino médio completo. A participação de mulheres já se equipara à de homens, mostrando uma diversidade crescente.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <svg class="w-12 h-12 text-teal-500 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm0-4h-2V7h2v8z"/></svg>
+                        <div>
+                            <h3 class="subsection-title">Áreas de Atividade</h3>
+                            <p class="text-slate-600">
+                                A grande maioria atua na <span class="font-bold text-teal-800">prestação de serviços</span> (cabeleireiros, eletricistas, mecânicos) e no <span class="font-bold text-teal-800">comércio varejista</span> (venda de roupas, alimentos, cosméticos), formalizando atividades já exercidas de forma autônoma.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre Nós - História e missão da empresa -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="container text-center">
+            <h2 class="section-title">Nossa História</h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-lg text-slate-600 mb-6">
+                    A Percy Contabilidade nasceu da paixão em descomplicar o mundo complexo da contabilidade para pequenos empreendedores. Acreditamos que o MEI é o motor da economia local e merece um serviço de contabilidade que seja acessível, eficiente e, acima de tudo, humano.
+                </p>
+                <p class="text-lg text-slate-600">
+                    Com anos de experiência no mercado, nossa equipe se dedica a oferecer um suporte completo, desde a formalização até a consultoria estratégica, para que você possa focar no que realmente importa: fazer seu negócio crescer.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário de Contato - Captura de leads -->
+    <section id="contato" class="py-20 bg-teal-800 text-white">
+        <div class="container text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Pronto para Crescer?</h2>
+            <p class="text-lg md:text-xl text-teal-200 mb-12 max-w-2xl mx-auto">
+                Preencha o formulário e vamos conversar sobre como a Percy Contabilidade pode ajudar você a prosperar.
+            </p>
+
+            <!-- Card do Formulário -->
+            <div class="bg-white text-slate-800 p-6 md:p-10 rounded-3xl shadow-2xl max-w-2xl mx-auto">
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-left text-sm font-medium text-slate-700">Nome Completo</label>
+                        <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 p-3 bg-gray-100">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-left text-sm font-medium text-slate-700">E-mail</label>
+                        <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 p-3 bg-gray-100">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-left text-sm font-medium text-slate-700">Telefone (WhatsApp)</label>
+                        <input type="tel" id="phone" name="phone" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 p-3 bg-gray-100">
+                    </div>
+                    <div>
+                        <label for="service" class="block text-left text-sm font-medium text-slate-700">Serviço de Interesse</label>
+                        <select id="service" name="service" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 p-3 bg-gray-100">
+                            <option value="" disabled selected>Selecione um serviço</option>
+                            <option value="Formalização (Novo MEI)">Formalização (Novo MEI)</option>
+                            <option value="Declaração Anual (DASN-SIMEI)">Declaração Anual (DASN-SIMEI)</option>
+                            <option value="Contabilidade Completa">Contabilidade Completa</option>
+                            <option value="Consultoria Financeira">Consultoria Financeira</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-left text-sm font-medium text-slate-700">Sua Mensagem</label>
+                        <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 p-3 bg-gray-100"></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full py-3 px-6 border border-transparent rounded-full shadow-sm text-lg font-bold text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-colors transform hover:scale-105">
+                        Enviar e Falar no WhatsApp
+                    </button>
+
+                    <!-- Área para mensagens de feedback -->
+                    <div id="formMessage" class="mt-4 text-center text-sm font-medium hidden"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé (Footer) - Direitos autorais e informações de contato -->
+    <footer class="bg-teal-900 text-white py-12">
+        <div class="container text-center">
+            <div class="mb-4">
+                <!-- Logomarca no rodapé para reforçar a marca no final -->
+                <a href="#" class="text-2xl font-black text-white">
+                    <img src="logopercyatual.jpeg" alt="Logo Percy Contabilidade" class="w-auto h-12 mx-auto">
+                </a>
+            </div>
+            <p class="text-sm text-teal-200">&copy; 2025 Percy Contabilidade. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Função para renderizar o gráfico de barras
+        function renderChart() {
+            const ctx = document.getElementById('meiChart').getContext('2d');
+
+            const data = {
+                labels: ['2020', '2021', '2022', '2023', '2024'],
+                datasets: [{
+                    label: 'Número de MEIs no Brasil',
+                    data: [10.6, 13.4, 15.6, 18.1, 20.7],
+                    backgroundColor: '#115e59', // teal-800
+                    borderRadius: 8,
+                }]
+            };
+
+            const options = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return tooltipItem.dataset.label + ': ' + tooltipItem.raw + ' milhões';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 25,
+                        title: {
+                            display: true,
+                            text: 'Milhões de MEIs',
+                            color: '#475569' // slate-600
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                if (value === 0) return '0';
+                                return value + 'M';
+                            },
+                            color: '#475569' // slate-600
+                        },
+                        grid: {
+                            color: 'rgba(203, 213, 225, 0.5)' // slate-300 com transparência
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Ano',
+                            color: '#475569' // slate-600
+                        },
+                        ticks: {
+                            color: '#475569' // slate-600
+                        },
+                        grid: {
+                            display: false // Oculta as linhas de grade do eixo X
+                        }
+                    }
+                }
+            };
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: data,
+                options: options
+            });
+        }
+
+        // Lógica do formulário de contato para envio via WhatsApp
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+            const submitBtn = document.getElementById('submitBtn');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Obtém os valores dos campos do formulário
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const service = document.getElementById('service').value;
+                const message = document.getElementById('message').value;
+                
+                // Número de WhatsApp da Percy Contabilidade
+                const whatsappNumber = '5521985518475'; 
+
+                // Desabilita o botão e mostra mensagem de envio
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Enviando...';
+                formMessage.textContent = 'Aguarde, estamos processando suas informações...';
+                formMessage.classList.remove('hidden');
+                formMessage.classList.remove('text-red-500');
+                formMessage.classList.add('text-teal-600');
+
+                // Simula o tempo de envio (como se estivesse fazendo uma chamada de API)
+                setTimeout(() => {
+                    
+                    // Monta a mensagem pré-preenchida para o WhatsApp
+                    const whatsappMessage = `Olá, Percy Contabilidade!%0A%0ARecebi seu contato pela landing page e gostaria de conversar sobre:%0A%0A*Nome:* ${encodeURIComponent(name)}%0A*E-mail:* ${encodeURIComponent(email)}%0A*Telefone:* ${encodeURIComponent(phone)}%0A*Serviço de Interesse:* ${encodeURIComponent(service)}%0A*Mensagem:* ${encodeURIComponent(message || 'Sem mensagem adicional.')}%0A%0AAguardando seu retorno. Obrigado!`;
+                    
+                    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+                    // Exibe a mensagem de sucesso
+                    formMessage.textContent = 'Formulário enviado com sucesso! Você será redirecionado para o WhatsApp.';
+                    formMessage.classList.remove('hidden');
+                    formMessage.classList.add('text-teal-600');
+
+                    // Redireciona o usuário para o WhatsApp
+                    window.open(whatsappUrl, '_blank');
+
+                    // Habilita o botão novamente e limpa o formulário
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Enviar e Falar no WhatsApp';
+                    form.reset();
+
+                    // Esconde a mensagem após 5 segundos
+                    setTimeout(() => {
+                        formMessage.classList.add('hidden');
+                    }, 5000);
+
+                }, 2000); // 2 segundos para simular o envio
+            });
+        });
+
+        // Chama a função para renderizar o gráfico quando a janela carregar
+        window.onload = renderChart;
+    </script>
+
+</body>
+</html>
