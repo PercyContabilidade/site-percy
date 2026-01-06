@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheguei, Sou MEI - Portal de Ferramentas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --primary-color: #1a1a1a; --accent-color: #d4af37; }
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: white; }
+        .card-mei { background: #111; border: 1px solid #333; border-radius: 1.5rem; transition: 0.3s; display: block; }
+        .card-mei:hover { border-color: var(--accent-color); transform: translateY(-5px); }
+        .btn-return { background-color: transparent; color: var(--accent-color); border: 2px solid var(--accent-color); transition: 0.3s; }
+        .btn-return:hover { background-color: var(--accent-color); color: #000; }
+        .gold-text { color: var(--accent-color); }
+    </style>
+</head>
+<body class="py-10 px-4 min-h-screen">
+
+    <div class="max-w-4xl mx-auto text-center">
+        <header class="mb-12">
+            <img src="logopercyatual.jpeg" alt="Percy Contabilidade" class="mx-auto w-28 rounded-full mb-6 border-2 border-[#d4af37]">
+            <h1 class="text-3xl font-bold uppercase tracking-widest gold-text">Cheguei, Sou MEI</h1>
+            <p class="text-gray-400 mt-2">Sua jornada empreendedora começa aqui.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <a href="quizmei.html" class="card-mei p-8 text-left" onclick="tocarSomVip(event, this.href)">
+                <span class="text-3xl mb-4 block">📝</span>
+                <h3 class="text-xl font-bold gold-text">Quiz Diagnóstico</h3>
+                <p class="text-gray-400 text-sm mt-2">Descubra seu perfil MEI.</p>
+            </a>
+
+            <a href="simulador.html" class="card-mei p-8 text-left" onclick="tocarSomVip(event, this.href)">
+                <span class="text-3xl mb-4 block">📊</span>
+                <h3 class="text-xl font-bold gold-text">Simulador de Economia</h3>
+                <p class="text-gray-400 text-sm mt-2">Compare PF vs MEI.</p>
+            </a>
+
+            <a href="mei_inativo.html" class="card-mei p-8 text-left" onclick="tocarSomVip(event, this.href)">
+                <span class="text-3xl mb-4 block">⚖️</span>
+                <h3 class="text-xl font-bold gold-text">MEI Inativo / Dívidas</h3>
+                <p class="text-gray-400 text-sm mt-2">Regularize seu CNPJ.</p>
+            </a>
+
+            <a href="https://wa.me/5521985518475" target="_blank" class="card-mei p-8 text-left border-[#25d366]/30">
+                <span class="text-3xl mb-4 block">💬</span>
+                <h3 class="text-xl font-bold text-[#25d366]">Falar com Percy</h3>
+                <p class="text-gray-400 text-sm mt-2">Atendimento direto.</p>
+            </a>
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-gray-800">
+            <button onclick="tocarSomVip(event, 'https://percycontabilidade.github.io/consultoria/')" class="btn-return px-10 py-4 rounded-full font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-3 mx-auto">
+                ⬅️ Voltar ao Hub de Consultoria
+            </button>
+        </div>
+    </div>
+
+    <audio id="audioVip" src="https://assets.mixkit.co/active_storage/sfx/2358/2358-preview.mp3"></audio>
+
+    <script>
+        function tocarSomVip(event, url) {
+            if (event) event.preventDefault();
+            const som = document.getElementById('audioVip');
+            som.play();
+            setTimeout(() => {
+                window.location.href = url;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
+
