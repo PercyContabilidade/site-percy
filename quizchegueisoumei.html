@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMEI - Cheguei, Sou MEI! - Percy Contabilidade</title>
+    <style>
+        /* Estilos básicos para o Quiz */
+        body { font-family: sans-serif; background-color: #8b0000; color: #fff; padding: 20px; }
+        .quiz-container { max-width: 600px; margin: 0 auto; background: #a52a2a; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+        h1 { text-align: center; color: #ffeb3b; text-shadow: 2px 2px #444; }
+        
+        /* ESTILO ATUALIZADO PARA A LOGO (REDUÇÃO DO TAMANHO) */
+        .quiz-logo { 
+            display: block; 
+            max-width: 25%; /* Ajustado para 25% */
+            height: auto; 
+            margin: 0 auto 15px auto; /* Centraliza e ajusta margem */
+            border-radius: 5px; 
+        }
+        
+        .question { margin-bottom: 20px; padding: 15px; border-bottom: 1px solid #ffeb3b; }
+        .question p { font-weight: bold; margin-bottom: 10px; }
+        label { display: block; margin-bottom: 10px; cursor: pointer; background: #690000; padding: 10px; border-radius: 5px; transition: background 0.3s; }
+        label:hover { background: #4a0000; }
+        button { background-color: #ffeb3b; color: #8b0000; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1em; font-weight: bold; width: 100%; margin-top: 20px; }
+        button:hover { background-color: #ffd700; }
+        #results { margin-top: 30px; text-align: center; background: #ffeb3b; color: #8b0000; padding: 20px; border-radius: 10px; }
+        #results h2 { color: #8b0000; }
+        .cta-whatsapp { display: block; margin-top: 20px; background-color: #25d366; color: white; padding: 15px; border-radius: 8px; text-decoration: none; font-size: 1.2em; font-weight: bold; }
+        .cta-whatsapp:hover { background-color: #128c7e; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>CHEGUEI, SOU MEI!</h1>
+    
+    <img src="logochegueisoumei.jpeg" alt="Logo Cheguei Sou MEI - Percy Contabilidade" class="quiz-logo">
+    
+    <p style="text-align: center; font-style: italic;">Descubra seu potencial e resolva suas dúvidas sobre o MEI.</p>
+    <hr>
+
+    <form id="mei-quiz">
+        <div class="question" data-question="P1">
+            <p>1. Quanto você fatura (receita bruta) por ano com seu negócio?</p>
+            <label><input type="radio" name="q1" value="a" required> a) Até R$ 81.000,00</label>
+            <label><input type="radio" name="q1" value="b"> b) Entre R$ 81.000,00 e R$ 150.000,00</label>
+            <label><input type="radio" name="q1" value="c"> c) Mais de R$ 150.000,00</label>
+        </div>
+
+        <div class="question" data-question="P2">
+            <p>2. Se você tem um acidente ou precisa se afastar por doença, quem garante sua renda hoje?</p>
+            <label><input type="radio" name="q2" value="a" required> a) Não tenho garantia (informal)</label>
+            <label><input type="radio" name="q2" value="b"> b) O INSS do meu DAS-MEI (MEI atual)</label>
+            <label><input type="radio" name="q2" value="c"> c) Não pensei nisso/Não sei</label>
+        </div>
+
+        <div class="question" data-question="P3">
+            <p>3. Qual das atividades abaixo você exerce ou pretende exercer?</p>
+            <label><input type="radio" name="q3" value="a" required> a) Comércio de roupas/Alimentação (já permitido)</label>
+            <label><input type="radio" name="q3" value="b"> b) Organizador de Eventos, DJ, Fotógrafo de Eventos, Garçom</label>
+            <label><input type="radio" name="q3" value="c"> c) Advogado, Médico ou Engenheiro (não permitido no MEI)</label>
+        </div>
+
+        <div class="question" data-question="P4">
+            <p>4. Como você controla o dinheiro da sua empresa e o seu dinheiro pessoal?</p>
+            <label><input type="radio" name="q4" value="a" required> a) Tudo na mesma conta, é tudo meu! (Mistura PJ e PF)</label>
+            <label><input type="radio" name="q4" value="b"> b) Uso contas separadas e anoto tudo em um caderno/planilha</label>
+            <label><input type="radio" name="q4" value="c"> c) Tenho um sistema de gestão e sei exatamente meu lucro líquido</label>
+        </div>
+
+        <div class="question" data-question="P5">
+            <p>5. Você sabe o prazo e como preencher corretamente sua Declaração Anual (DASN-SIMEI) e a Declaração de Imposto de Renda Pessoa Física (IRPF)?</p>
+            <label><input type="radio" name="q5" value="a" required> a) Sim, eu faço tudo sozinho e nunca tive problemas</label>
+            <label><input type="radio" name="q5" value="b"> b) Sei que tem que fazer, mas confundo as datas e as informações do IRPF</label>
+            <label><input type="radio" name="q5" value="c"> c) Nunca fiz/Não sei o que é IRPF</label>
+        </div>
+
+        <button type="submit">VER MEU RESULTADO</button>
+    </form>
+
+    <div id="results" style="display: none;">
+        <h2>Seu Resultado no QuizMEI:</h2>
+        <p id="result-message"></p>
+        <a id="cta-link" href="https://wa.me/5521979667707?text=Ol%C3%A1%2C%20fiz%20o%20QuizMEI%20e%20quero%20saber%20como%20a%20contabilidade%20pode%20ajudar%20meu%20neg%C3%B3cio!" class="cta-whatsapp" target="_blank">
+            QuizMEI: Saiba Mais agora pelo whatsapp 21979667707
+        </a>
+        <p style="margin-top: 15px; font-size: 0.8em; color: #444;">@percycontabilidade</p>
+    </div>
+
+</div>
+
+<script>
+    document.getElementById('mei-quiz').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        // Verifica se todas as perguntas foram respondidas
+        const allAnswered = Array.from(form.querySelectorAll('input[type="radio"]:checked')).length === 5;
+
+        if (!allAnswered) {
+            alert("Por favor, responda a todas as perguntas para ver seu resultado!");
+            return;
+        }
+
+        const q1 = form.elements['q1'].value;
+        const q2 = form.elements['q2'].value;
+        const q3 = form.elements['q3'].value;
+        const q4 = form.elements['q4'].value;
+        const q5 = form.elements['q5'].value;
+
+        let resultType = 'C'; // Default: MEI Consciente
+
+        // Lógica para CENÁRIO A: ALERTA DE CRESCIMENTO E REGULARIZAÇÃO!
+        if (q1 === 'b' || q1 === 'c' || q4 === 'a') {
+            resultType = 'A';
+        } 
+        // Lógica para CENÁRIO B: OPORTUNIDADE DE FORMALIZAÇÃO E SEGURANÇA! (Só se não cair no A)
+        else if (q2 === 'a' || q3 === 'b' || q5 === 'c') {
+            resultType = 'B';
+        }
+
+        let message = '';
+
+        switch (resultType) {
+            case 'A':
+                message = "🚨 **ALERTA: Seu negócio está CRESCENDO RÁPIDO DEMAIS!** Você pode estar prestes a **ultrapassar o limite** do MEI (R$ 81 mil/R$ 150 mil) ou está misturando o dinheiro pessoal com o da empresa, o que é um **grande risco!** Não perca todos os benefícios por um erro de gestão. Você precisa de um plano para o seu próximo nível!";
+                break;
+            case 'B':
+                message = "💡 **OPORTUNIDADE: Sua segurança e formalização estão a um passo!** Profissionais de **Eventos** podem ter grandes novidades em breve! Além disso, você precisa garantir seus direitos (aposentadoria, auxílio-doença) e parar de arriscar seu futuro. A burocracia do MEI é mais simples do que parece, mas exige atenção!";
+                break;
+            case 'C':
+                message = "✅ **PARABÉNS! Você é um MEI (ou futuro MEI) Consciente!** Você conhece as obrigações básicas, mas sabia que um contador pode te ajudar a pagar menos Imposto de Renda Pessoa Física e a planejar seu crescimento para o futuro R$ 150 mil? Ser MEI é mais do que só pagar o DAS, é gerenciar o seu patrimônio!";
+                break;
+        }
+
+        document.getElementById('result-message').innerHTML = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        document.getElementById('mei-quiz').style.display = 'none';
+        document.getElementById('results').style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
