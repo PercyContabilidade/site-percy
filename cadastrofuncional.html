@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Cadastro - Percy Contabilidade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #d4af37;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f4f4f4; }
+        .form-container { background: white; border-radius: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .input-field { border: 1px solid #ddd; border-radius: 0.5rem; padding: 0.75rem; width: 100%; transition: 0.3s; }
+        .input-field:focus { border-color: var(--accent-color); outline: none; ring: 2px solid #d4af37; }
+        .btn-send { background-color: var(--primary-color); color: var(--accent-color); transition: 0.3s; }
+        .btn-send:hover { background-color: #333; transform: translateY(-2px); }
+        .btn-return { 
+            background-color: transparent; 
+            color: #666; 
+            border: 1px solid #ddd;
+            transition: 0.3s;
+        }
+        .btn-return:hover { background-color: #eee; color: #1a1a1a; }
+    </style>
+</head>
+<body class="py-12 px-4">
+
+    <div class="max-w-xl mx-auto form-container p-8 md:p-12">
+        <div class="text-center mb-10">
+            <img src="logopercyatual.jpeg" alt="Logo Percy" class="mx-auto w-24 rounded-full mb-4 border-2 border-[#d4af37]">
+            <h1 class="text-2xl font-bold text-gray-800">Ficha de Cadastro</h1>
+            <p class="text-gray-500 text-sm">Preencha os dados para iniciarmos sua jornada inteligente.</p>
+        </div>
+
+        <form class="space-y-5">
+            <div>
+                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nome Completo</label>
+                <input type="text" placeholder="Seu nome" class="input-field">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">WhatsApp</label>
+                <input type="tel" placeholder="(00) 00000-0000" class="input-field">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Qual o seu objetivo?</label>
+                <select class="input-field">
+                    <option>Abrir um novo MEI</option>
+                    <option>Regularizar MEI Inativo</option>
+                    <option>Contratar um Funcionário</option>
+                    <option>Mentoria Individual</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn-send w-full py-4 rounded-xl font-bold shadow-lg mt-4">
+                ENVIAR DADOS PARA O PERCY
+            </button>
+        </form>
+
+        <div class="relative my-10">
+            <div class="absolute inset-0 flex items-center"><span class="w-full border-t border-gray-200"></span></div>
+            <div class="relative flex justify-center text-xs uppercase"><span class="bg-white px-2 text-gray-400">Segurança Garantida</span></div>
+        </div>
+
+        <button onclick="retornoPercyComSom()" class="btn-return w-full py-3 rounded-xl font-semibold flex items-center justify-center gap-2">
+            <span>⬅️</span> Voltar ao Menu Principal
+        </button>
+    </div>
+
+    <audio id="audioAlerta" src="https://percycontabilidade.github.io/guia-mei-percy/marca-percy.mp3"></audio>
+
+    <script>
+        function retornoPercyComSom() {
+            const player = document.getElementById('audioAlerta');
+            player.play();
+            setTimeout(function() {
+                window.location.href = "https://percycontabilidade.github.io/consultoria/";
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
