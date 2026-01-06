@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário — Perfil do MEI de Sucesso</title>
+    <style>
+        :root {
+            --percy-teal: #008080;
+            --percy-dark: #2c3e50;
+            --bg-body: #f4f4f4;
+        }
+
+        body { margin: 0; padding: 10px; background-color: var(--bg-body); font-family: 'Segoe UI', Arial, sans-serif; }
+        .main-card { max-width: 850px; margin: 20px auto; background: #fff; border-top: 6px solid var(--percy-teal); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; }
+        .top-bar { background: var(--percy-dark); color: #fff; padding: 8px; text-align: center; font-weight: bold; font-size: 0.85em; letter-spacing: 1px; }
+        .header { text-align: center; padding: 25px 20px 10px; }
+        .header h1 { color: var(--percy-teal); margin: 10px 0; font-size: 1.6em; }
+        
+        .grid-survey { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 20px 40px; }
+        .question-box { background: #fff; padding: 15px; border-bottom: 1px solid #eee; }
+        .full-width { grid-column: 1 / span 2; border-bottom: none; }
+        p { margin: 0 0 12px 0; font-size: 0.95em; color: #333; font-weight: 700; }
+        label { display: block; margin-bottom: 8px; font-size: 0.9em; cursor: pointer; }
+        input[type="text"] { width: 100%; border: none; border-bottom: 1px solid #ccc; padding: 8px 0; outline: none; transition: 0.3s; }
+        input[type="text"]:focus { border-bottom: 2px solid var(--percy-teal); }
+
+        .footer-action { background: var(--percy-dark); padding: 30px; text-align: center; margin-top: 20px; }
+        .btn-whatsapp { background: #25d366; color: #fff; border: none; padding: 15px 45px; font-size: 1em; font-weight: bold; text-transform: uppercase; cursor: pointer; border-radius: 5px; transition: 0.3s; display: inline-flex; align-items: center; gap: 10px; }
+        .btn-whatsapp:hover { background: #128c7e; transform: scale(1.02); }
+        .percy-branding { margin-top: 20px; font-size: 11px; color: #bdc3c7; line-height: 1.5; }
+
+        @media (max-width: 600px) { .grid-survey { grid-template-columns: 1fr; padding: 15px; } .full-width { grid-column: 1; } }
+    </style>
+</head>
+<body>
+
+<div class="main-card">
+    <div class="top-bar">PROJETO CHEGUEI, SOU MEI — PERCY CONTABILIDADE</div>
+
+    <div class="header">
+        <img src="https://percycontabilidade.com.br/logochegueisoumei.jpeg" alt="Logo" width="90">
+        <h1>Perfil do MEI de Sucesso</h1>
+        <p style="font-weight: normal; color: #666; font-size: 0.9em;">Responda para iniciarmos sua análise estratégica via WhatsApp.</p>
+    </div>
+
+    <form id="meiForm">
+        <div class="grid-survey">
+            <div class="question-box">
+                <p>1. Segmento de Atuação</p>
+                <label><input type="radio" name="seg" value="Alimentação" required> Alimentação</label>
+                <label><input type="radio" name="seg" value="Beleza"> Beleza/Estética</label>
+                <label><input type="radio" name="seg" value="Serviços"> Serviços Gerais</label>
+                <label><input type="radio" name="seg" value="Outros"> Outros</label>
+            </div>
+
+            <div class="question-box">
+                <p>2. Tempo de Formalização</p>
+                <label><input type="radio" name="tempo" value="Menos 6 meses" required> Menos de 6 meses</label>
+                <label><input type="radio" name="tempo" value="6 a 12 meses"> Entre 6 meses e 1 ano</label>
+                <label><input type="radio" name="tempo" value="Mais de 1 ano"> Mais de 1 ano</label>
+            </div>
+
+            <div class="question-box">
+                <p>3. Maior Dificuldade Inicial</p>
+                <label><input type="radio" name="dor" value="Atrair Clientes" required> Atrair Clientes</label>
+                <label><input type="radio" name="dor" value="Organizar Finanças"> Organizar Finanças</label>
+                <label><input type="radio" name="dor" value="Burocracia"> Entender Burocracias</label>
+            </div>
+
+            <div class="question-box">
+                <p>4. Objetivo Principal Hoje</p>
+                <label><input type="radio" name="alvo" value="Viver do Negócio" required> Viver apenas do negócio</label>
+                <label><input type="radio" name="alvo" value="Crescer Faturamento"> Aumentar faturamento</label>
+                <label><input type="radio" name="alvo" value="Migrar para ME"> Migrar para ME</label>
+            </div>
+
+            <div class="question-box full-width">
+                <p>5. Complete a frase: Ser MEI de sucesso é...</p>
+                <input type="text" id="visao" name="visao" placeholder="Sua visão profissional..." required>
+            </div>
+        </div>
+
+        <div class="footer-action">
+            <button type="submit" class="btn-whatsapp">
+                🚀 ENVIAR PARA O WHATSAPP
+            </button>
+            <div class="percy-branding">
+                © 2025 PERCY CONTABILIDADE - NEGÓCIOS INTELIGENTES<br>
+                O envio abrirá seu WhatsApp para validar o diagnóstico.
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('meiForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Coleta os dados
+        const formData = new FormData(this);
+        const seg = formData.get('seg');
+        const tempo = formData.get('tempo');
+        const dor = formData.get('dor');
+        const alvo = formData.get('alvo');
+        const visao = document.getElementById('visao').value;
+
+        // Monta a mensagem para o WhatsApp
+        const nroWhatsapp = "5521979667707";
+        const texto = window.encodeURIComponent(
+            `*NOVO DIAGNÓSTICO MEI DE SUCESSO*\n\n` +
+            `*1. Segmento:* ${seg}\n` +
+            `*2. Tempo:* ${tempo}\n` +
+            `*3. Dificuldade:* ${dor}\n` +
+            `*4. Objetivo:* ${alvo}\n` +
+            `*5. Visão de Sucesso:* ${visao}\n\n` +
+            `_Olá Dr. Cafter, acabei de preencher o questionário no site e gostaria de uma consultoria._`
+        );
+
+        // Redireciona
+        window.location.href = `https://wa.me/${nroWhatsapp}?text=${texto}`;
+    });
+</script>
+
+</body>
+</html>
