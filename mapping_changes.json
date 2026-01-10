@@ -1,0 +1,72 @@
+[
+  {
+    "file": "index.html",
+    "headerInjected": false,
+    "footerInjected": true
+  },
+  {
+    "file": "mei/teste.html",
+    "headerInjected": true,
+    "footerInjected": true
+  },
+  {
+    "file": "mei/sucesso.html",
+    "headerInjected": true,
+    "footerInjected": true
+  },
+  {
+    "file": "mei/soumeilp.html",
+    "headerInjected": true,
+    "footerInjected": true
+  },
+  {
+    "file": "mei/simulador.html",
+    "headerInjected": true,
+    "footerInjected": true
+  },
+  {
+    "file": "mei/quizmei.html",
+    "headerInjected": true,
+    "footerInjected": true
+  },
+  {
+    "file": "mei/quizchegueisoumei.html",
+    "headerInjected": true,
+    "footerInjected": true
+  },
+  {
+    "file": "mei/mestre.html",
+    "headerInjected": true,
+    "footerInjected": true
+  },
+  {
+    "file": "mei/meisucesso.html",
+    "headerInjected": true,
+    "footerInjected": true
+  },
+  {
+    "file": "mei/meime.html",
+    "headerInjected": true,
+    "footerInjected": true
+  },
+  {
+    "file": "mei/mei_inativo.html",
+    "headerInjected": true,
+    "footerInjected": true
+  },
+  {
+    "file": "mei/home_mei.html",
+    "headerInjected": true,
+    "footerInjected": true
+  },
+  {
+    "file": "mei/cadastrofuncional.html",
+    "headerInjected": true,
+    "footerInjected": true
+  },
+  {
+    "file": "consultoria/index.html",
+    "headerInjected": false,
+    "footerInjected": true
+  }
+]

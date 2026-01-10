@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+# Migração e normalização do site-percy para /ativos, /mei, /consultoria
+set -euo pipefail
+
+BRANCH="reorg/ativos-mei-consultoria-$(date +%Y%m%d%H%M%S)"
+echo "Criando branch $BRANCH"
+git checkout -b "$BRANCH"
+
+# Criar diretório unificado de ativos
+mkdir -p ativos/images ativos/videos ativos/css ativos/js includes
+
+# Mover imagens e vídeos para /ativos
+echo "Movendo imagens e vídeos encontrados para /ativos"
+> mapping_move.log
+
+shopt -s globstar nullglob
+for f in **/*.{jpg,jpeg,png,gif,svg,mp4,webm}; do
+  case "$f" in
+    .git/*|ativos/*|node_modules/*) continue;;
+  esac
+  ext="${f##*.}"
+  destdir="ativos/images"
+  if [[ "$ext" == "mp4" || "$ext" == "webm" ]]; then
+    destdir="ativos/videos"
+  fi
+  mkdir -p "$destdir"
+  newpath="$destdir/$(basename "$f")"
+  echo "git mv \"$f\" \"$newpath\"" >> mapping_move.log
+  git mv -- "$f" "$newpath" || (cp -a -- "$f" "$newpath" && git add "$newpath")
+done
+
+# Mover css/js soltos para /ativos/css e /ativos/js
+for f in **/*.{css,js}; do
+  case "$f" in
+    .git/*|ativos/*|node_modules/*|fix_paths.js) continue;;
+  esac
+  ext="${f##*.}"
+  destdir="ativos/$ext"
+  mkdir -p "$destdir"
+  newpath="$destdir/$(basename "$f")"
+  echo "git mv \"$f\" \"$newpath\"" >> mapping_move.log
+  git mv -- "$f" "$newpath" || (cp -a -- "$f" "$newpath" && git add "$newpath")
+done
+
+echo "Executando fix_paths.js..."
+if [ ! -d node_modules ]; then
+    npm init -y >/dev/null
+    npm install cheerio glob fs-extra --save >/dev/null
+fi
+
+node fix_paths.js > mapping_changes.json
+
+echo "Substituindo termos 'Contador e Jurídico' -> 'Contador e Jurídico'"
+grep -RIl "Contador e Jurídico" . | xargs -r sed -i.bak 's/Contador e Jurídico/Contador e Jurídico/g'
+
+git add ativos includes || true
+git add -A
+git commit -m "Reorganização: ativos, headers/footers e termo Contador e Jurídico" || echo "Nada para commitar"
+
+echo "Migração concluída com sucesso!"
