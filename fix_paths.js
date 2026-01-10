@@ -15,9 +15,28 @@ function toAtivosPath(orig) {
   return `/${orig}`;
 }
 
+// --- NOVA FUNÇÃO MÁGICA PARA INJETAR O CSS ---
+function ensureCss($, filePath) {
+    const cssPath = '/ativos/css/style.css';
+    // Se já tiver o link, não faz nada para não duplicar
+    if ($(`link[href*="${cssPath}"]`).length) return false;
+    
+    // Adiciona o link do CSS no final do <head>
+    const cssLink = `<link rel="stylesheet" href="${cssPath}">`;
+    if ($('head').length) {
+        $('head').append(cssLink);
+    } else {
+        // Se não tiver a tag <head>, cria uma
+        $('html').prepend(`<head>${cssLink}</head>`);
+    }
+    return true;
+}
+// -------------------------------------------
+
 function ensureHeader($, filePath) {
   if (path.basename(filePath).toLowerCase() === 'index.html') return false;
   if ($('video.logo-animada').length) return false;
+  // Header padrão com a classe para o CSS pegar
   const headerHtml = `<header class="subpage-header"><video class="logo-animada" autoplay muted loop playsinline><source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4"></video></header>`;
   $('body').prepend(headerHtml);
   return true;
@@ -25,30 +44,38 @@ function ensureHeader($, filePath) {
 
 function ensureFooter($) {
   if ($('.site-footer').length) return false;
+  // Footer padrão com a classe para o CSS pegar
   const footerHtml = `<footer class="site-footer"><img src="/ativos/images/logopercyatual.jpeg" alt="Percy Contabilidade" class="footer-logo"><p>© 2026 Percy Contabilidade</p></footer>`;
   $('body').append(footerHtml);
   return true;
 }
 
 (async function main(){
-  const results = [];
+  console.log("Iniciando correção de caminhos e injeção de estilos...");
   const files = glob.sync("**/*.html", {ignore: ["node_modules/**", ".git/**", "ativos/**"]});
+  let processedCount = 0;
   for (const f of files) {
     try {
       let content = await fs.readFile(f, 'utf8');
       const $ = cheerio.load(content, {decodeEntities:false});
-      const changes = [];
 
-      $('img').each((i,el)=> { const v = $(el).attr('src'); $(el).attr('src', toAtivosPath(v)); });
-      $('video, source').each((i,el)=> { const v = $(el).attr('src'); $(el).attr('src', toAtivosPath(v)); });
-      $('link').each((i,el)=> { const v = $(el).attr('href'); $(el).attr('href', toAtivosPath(v)); });
-      $('script').each((i,el)=> { const v = $(el).attr('src'); $(el).attr('src', toAtivosPath(v)); });
+      // Corrige caminhos de imagens, vídeos e scripts
+      $('img, video, source, link, script').each((i,el)=> {
+          const attr = $(el).is('link') ? 'href' : 'src';
+          const v = $(el).attr(attr);
+          if(v) $(el).attr(attr, toAtivosPath(v));
+      });
 
+      // --- APLICA AS INJEÇÕES ---
+      const cssInjected = ensureCss($, f);
       const headerInjected = ensureHeader($, f);
       const footerInjected = ensureFooter($);
+      // --------------------------
+      
       await fs.writeFile(f, $.html(), 'utf8');
-      results.push({file:f, headerInjected, footerInjected});
-    } catch (err) { console.error(err); }
+      processedCount++;
+    } catch (err) { console.error(`Erro ao processar ${f}: ${err}`); }
   }
-  console.log(JSON.stringify(results, null, 2));
+  console.log(`Concluído! ${processedCount} arquivos processados com sucesso.`);
+  console.log("As regras de estilo Diamante foram aplicadas.");
 })();

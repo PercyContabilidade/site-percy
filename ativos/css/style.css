@@ -1,0 +1,60 @@
+/* =========================================
+   Regras de Estilo Diamante - Percy 2026
+   ========================================= */
+
+/* forçar um layout vertical elegante em todas as páginas */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    font-family: sans-serif; /* ou sua fonte preferida */
+}
+
+/* 1. Corrige a Logo Animada Gigante nas subpáginas (Ex: MEI) */
+/* O vídeo dentro do cabeçalho */
+.subpage-header video.logo-animada {
+    max-width: 250px;   /* Define um limite de largura elegante */
+    width: 80%;         /* Ocupa 80% da tela em celulares, até o limite de 250px */
+    height: auto;       /* Mantém a proporção correta */
+    display: block;     /* Garante que fique em sua própria linha */
+    margin: 20px auto;  /* Centraliza e dá um respiro acima/abaixo */
+    border-radius: 8px; /* Um toque de elegância */
+}
+
+/* 2. Corrige a Logo Lateral Gigante na página de Consultoria */
+/* Se a logo estiver solta na página como uma imagem principal */
+img[src*="logopercyatual.jpeg"] {
+    max-width: 200px;   /* Um tamanho controlado para a logo estática principal */
+    width: 70%;
+    height: auto;
+    display: block;
+    margin: 30px auto 10px auto;  /* Centraliza com um bom espaço no topo */
+}
+
+/* 3. Garante que o rodapé também fique elegante e discreto */
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: auto; /* Empurra o rodapé para o final da página */
+    width: 100%;
+    background-color: #f8f9fa; /* Um fundo cinza claro sutil */
+}
+
+.site-footer .footer-logo {
+    max-width: 100px;   /* Logo do rodapé deve ser a menor de todas */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.site-footer p {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Ajuste fino para formulários, para não ficarem largos demais */
+form {
+    width: 90%;
+    max-width: 400px; /* Limita a largura em telas grandes */
+    margin: 20px auto;
+}
