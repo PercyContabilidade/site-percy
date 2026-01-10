@@ -1,0 +1,4 @@
+git mv "logopercyatual.jpeg" "ativos/images/logopercyatual.jpeg"
+git mv "consultoria/logo.png" "ativos/images/logo.png"
+git mv "logo-animada.gif.mp4" "ativos/videos/logo-animada.gif.mp4"
+git mv "logo-audio.mp4" "ativos/videos/logo-audio.mp4"

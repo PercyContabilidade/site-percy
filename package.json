@@ -1,0 +1,26 @@
+{
+  "name": "site-percy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fix_paths.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PercyContabilidade/site-percy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PercyContabilidade/site-percy/issues"
+  },
+  "homepage": "https://github.com/PercyContabilidade/site-percy#readme",
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "fs-extra": "^11.3.3",
+    "glob": "^13.0.0"
+  }
+}
