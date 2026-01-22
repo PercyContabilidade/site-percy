@@ -1,6 +1,8 @@
-<!DOCTYPE html><html lang="pt-br"><head>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Percy Contabilidade - Negócios Inteligentes</title>
     <style>
         :root {
@@ -19,52 +21,105 @@
         }
         .container { width: 100%; max-width: 400px; padding: 20px; box-sizing: border-box; }
         
-        /* Estilo do Vídeo */
-        .video-container { width: 200px; margin: 0 auto; cursor: pointer; }
-        video { width: 100%; border-radius: 10px; border: 1px solid var(--gold); }
+        /* Estilo do Vídeo Sensorial */
+        .video-container { width: 220px; margin: 0 auto; cursor: pointer; }
+        video { width: 100%; border-radius: 12px; border: 1.5px solid var(--gold); box-shadow: 0 0 15px rgba(197, 160, 89, 0.3); }
         
-        .pulse { font-size: 0.75rem; color: var(--gold); font-weight: bold; margin-top: 10px; animation: opacityPulse 2s infinite; }
+        .pulse { font-size: 0.75rem; color: var(--gold); font-weight: bold; margin-top: 10px; animation: opacityPulse 2s infinite; letter-spacing: 1px; }
         @keyframes opacityPulse { 0% {opacity: 0.4;} 50% {opacity: 1;} 100% {opacity: 0.4;} }
 
-        .nav-buttons { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
-        .btn { background-color: var(--accent); color: white; text-decoration: none; padding: 18px; border-radius: 8px; font-weight: bold; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; display: block; }
-        .btn-featured { border: 1.5px solid var(--gold); background: linear-gradient(135deg, #172a45 0%, #0a192f 100%); }
-        .footer { margin-top: auto; padding: 40px 20px; font-size: 0.7rem; opacity: 0.6; }
-        .logo-footer { width: 70px; margin-bottom: 10px; }
+        /* Container de Botões Diamante */
+        .nav-buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
+        
+        .btn { 
+            background-color: var(--accent); 
+            color: white; 
+            text-decoration: none; 
+            padding: 16px; 
+            border-radius: 10px; 
+            font-weight: bold; 
+            border: 1px solid rgba(255,255,255,0.1); 
+            transition: 0.3s; 
+            display: block;
+            font-size: 0.95rem;
+        }
+        
+        .btn-featured { 
+            border: 1.5px solid var(--gold); 
+            background: linear-gradient(135deg, #172a45 0%, #0a192f 100%);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Botões Auxiliares Grid */
+        .btn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .btn-small {
+            background: rgba(23, 42, 69, 0.5);
+            font-size: 0.8rem;
+            padding: 12px;
+            border-radius: 8px;
+            color: var(--gold);
+            text-decoration: none;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        /* Rodapé Unificado Percy 2026 */
+        .site-footer { 
+            margin-top: auto; 
+            padding: 40px 20px; 
+            font-size: 0.75rem; 
+            opacity: 0.8;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            width: 100%;
+        }
+        .footer-logo { width: 80px; margin-bottom: 15px; border-radius: 5px; }
+        .site-footer p { margin: 5px 0; color: var(--text-light); }
     </style>
-<link rel="stylesheet" href="/ativos/css/style.css"></head>
+    <link rel="stylesheet" href="/ativos/css/style.css">
+</head>
 <body>
 
     <div class="container">
-        <div class="video-container">
-            <video autoplay="" muted="" loop="" playsinline="" id="videoLogo">
+        <div class="video-container" onclick="toggleAudio()">
+            <video autoplay muted loop playsinline id="videoLogo">
                 <source src="/ativos/videos/logo-audio.mp4" type="video/mp4">
             </video>
             <p class="pulse">🔊 TOQUE PARA OUVIR</p>
         </div>
         
-        <h1>Percy Contabilidade</h1>
-        <p>Negócios Inteligentes &amp; Jurídicos</p>
+        <h1 style="margin-bottom: 5px; font-size: 1.8rem; color: var(--gold);">Percy Contabilidade</h1>
+        <p style="margin-top: 0; opacity: 0.9; font-weight: 300;">Negócios Inteligentes & Jurídicos</p>
 
         <div class="nav-buttons">
-            <a href="mei/soumeilp.html" class="btn btn-featured">🚀 CHEGUEI, SOU MEI!</a>
-            <a href="consultoria/index.html" class="btn">📊 CONSULTORIA PREMIUM</a>
+            <a href="/mei/soumeilp.html" class="btn btn-featured">🚀 CHEGUEI, SOU MEI!</a>
+            
+            <a href="/consultoria/index.html" class="btn">⚖️ CONSULTORIA PREMIUM</a>
+
+            <div class="btn-grid">
+                <a href="/mei/simulador.html" class="btn-small">📊 Simulador</a>
+                <a href="/mei/quizmei.html" class="btn-small">🧠 Quiz MEI</a>
+            </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <img src="/ativos/images/logopercyatual.jpeg" alt="Percy" class="logo-footer"><br>
-        © 2026 Percy Contabilidade - CRC/OAB<br>
-        "Inteligência para o seu negócio."
+    <footer class="site-footer">
+        <img src="/ativos/images/logopercyatual.jpeg" alt="Percy Contabilidade" class="footer-logo">
+        <p>© 2026 Percy Contabilidade - CRC/OAB</p>
+        <p style="font-style: italic; opacity: 0.7;">"Inteligência para o seu negócio."</p>
     </footer>
 
     <script>
-        const v = document.getElementById('videoLogo');
-        v.addEventListener('click', () => {
+        function toggleAudio() {
+            const v = document.getElementById('videoLogo');
             v.muted = !v.muted;
-        });
+            const pulse = document.querySelector('.pulse');
+            pulse.innerText = v.muted ? "🔊 TOQUE PARA OUVIR" : "🔇 TOCANDO ÁUDIO";
+        }
     </script>
 
-
-
-<footer class="site-footer"><img src="/ativos/images/logopercyatual.jpeg" alt="Percy Contabilidade" class="footer-logo"><p>© 2026 Percy Contabilidade</p></footer></body></html>
+</body>
+</html>
