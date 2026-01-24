@@ -1,124 +1,104 @@
 <!DOCTYPE html><html lang="pt-br"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Percy Contabilidade - Negócios Inteligentes</title>
-    <style>
-        :root {
-            --primary: #0a192f;
-            --accent: #172a45;
-            --text-light: #e6f1ff;
-            --gold: #c5a059;
-        }
-        body {
-            margin: 0; padding: 0;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--primary);
-            color: var(--text-light);
-            display: flex; flex-direction: column; align-items: center;
-            min-height: 100vh; text-align: center;
-        }
-        .container { width: 100%; max-width: 400px; padding: 20px; box-sizing: border-box; }
-        
-        /* Estilo do Vídeo Sensorial */
-        .video-container { width: 220px; margin: 0 auto; cursor: pointer; }
-        video { width: 100%; border-radius: 12px; border: 1.5px solid var(--gold); box-shadow: 0 0 15px rgba(197, 160, 89, 0.3); }
-        
-        .pulse { font-size: 0.75rem; color: var(--gold); font-weight: bold; margin-top: 10px; animation: opacityPulse 2s infinite; letter-spacing: 1px; }
-        @keyframes opacityPulse { 0% {opacity: 0.4;} 50% {opacity: 1;} 100% {opacity: 0.4;} }
-
-        /* Container de Botões Diamante */
-        .nav-buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
-        
-        .btn { 
-            background-color: var(--accent); 
-            color: white; 
-            text-decoration: none; 
-            padding: 16px; 
-            border-radius: 10px; 
-            font-weight: bold; 
-            border: 1px solid rgba(255,255,255,0.1); 
-            transition: 0.3s; 
-            display: block;
-            font-size: 0.95rem;
-        }
-        
-        .btn-featured { 
-            border: 1.5px solid var(--gold); 
-            background: linear-gradient(135deg, #172a45 0%, #0a192f 100%);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        /* Botões Auxiliares Grid */
-        .btn-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .btn-small {
-            background: rgba(23, 42, 69, 0.5);
-            font-size: 0.8rem;
-            padding: 12px;
-            border-radius: 8px;
-            color: var(--gold);
-            text-decoration: none;
-            border: 1px solid rgba(197, 160, 89, 0.2);
-        }
-
-        /* Rodapé Unificado Percy 2026 */
-        .site-footer { 
-            margin-top: auto; 
-            padding: 40px 20px; 
-            font-size: 0.75rem; 
-            opacity: 0.8;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            width: 100%;
-        }
-        .footer-logo { width: 80px; margin-bottom: 15px; border-radius: 5px; }
-        .site-footer p { margin: 5px 0; color: var(--text-light); }
-    </style>
+    <title>Percy Contabilidade - HUB de Negócios Inteligentes</title>
     <link rel="stylesheet" href="/ativos/css/style.css">
+    <style>
+        :root { --gold: #c5a059; --dark: #0a192f; --light: #e6f1ff; --accent: #0b6fb6; }
+        body { margin: 0; font-family: 'Segoe UI', Roboto, sans-serif; background: #fff; color: var(--dark); overflow-x: hidden; }
+        
+        .trindade-header {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            gap: 20px;
+            align-items: center;
+            padding: 40px 5%;
+            background: var(--dark);
+            border-bottom: 3px solid var(--gold);
+            color: var(--light);
+        }
+        
+        @media (max-width: 900px) {
+            .trindade-header { grid-template-columns: 1fr; text-align: center; padding: 20px; }
+        }
+
+        .video-container {
+            border: 3px solid var(--gold);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+            background: #000;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--dark);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="video-container" onclick="toggleAudio()">
-            <video autoplay="" muted="" loop="" playsinline="" id="videoLogo">
+    <header class="trindade-header">
+        <div style="text-align: left;">
+            <span style="border: 1px solid var(--gold); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; color: var(--gold); font-weight: bold;">● ESPECIALISTA EM MEI</span>
+            <h2 style="font-size: 1.8rem; margin: 15px 0 10px 0;">CHEGUEI,<br>SOU MEI!</h2>
+            <a href="/mei/soumeilp.html" style="color: var(--gold); text-decoration: none; font-weight: bold;">PORTAL DO MEI →</a>
+        </div>
+
+        <div class="video-container">
+            <!-- VÍDEO SEM LOOP NO SOM: TOCA UMA VEZ E FICA VISUAL -->
+            <video autoplay="" muted="" playsinline="" id="videoPercy" style="width: 100%; display: block;">
                 <source src="/ativos/videos/logo-audio.mp4" type="video/mp4">
             </video>
-            <p class="pulse">🔊 TOQUE PARA OUVIR</p>
-        </div>
-        
-        <h1 style="margin-bottom: 5px; font-size: 1.8rem; color: var(--gold);">Percy Contabilidade</h1>
-        <p style="margin-top: 0; opacity: 0.9; font-weight: 300;">Negócios Inteligentes &amp; Jurídicos</p>
-
-        <div class="nav-buttons">
-            <a href="/mei/soumeilp.html" class="btn btn-featured">🚀 CHEGUEI, SOU MEI!</a>
-            
-            <a href="/consultoria/index.html" class="btn">⚖️ CONSULTORIA PREMIUM</a>
-
-            <div class="btn-grid">
-                <a href="/mei/simulador.html" class="btn-small">📊 Simulador</a>
-                <a href="/mei/quizmei.html" class="btn-small">🧠 Quiz MEI</a>
+            <div id="video-status" onclick="ativarSom()" style="background: var(--gold); color: var(--dark); padding: 8px; font-size: 0.7rem; font-weight: bold; text-align: center; cursor: pointer;">
+                🔊 CLIQUE PARA OUVIR A APRESENTAÇÃO
             </div>
         </div>
-    </div>
 
-    <footer class="site-footer">
-        <img src="/ativos/images/logopercyatual.jpeg" alt="Percy Contabilidade" class="footer-logo">
-        <p>© 2026 Percy Contabilidade - CRC/OAB</p>
-        <p style="font-style: italic; opacity: 0.7;">"Inteligência para o seu negócio."</p>
+        <div style="text-align: right;">
+            <h2 style="font-size: 1.8rem; margin: 0 0 10px 0;">INTELIGÊNCIA<br>CONTÁBIL</h2>
+            <a href="https://wa.me/5521999999999" class="btn-gold">SOLICITAR CONSULTORIA</a>
+        </div>
+    </header>
+
+    <main style="padding: 60px 5%; text-align: center;">
+        <h1 style="font-size: 2.8rem;">Sua Empresa Precisa de <span style="color: var(--accent);">Inteligência</span></h1>
+        <p style="max-width: 800px; margin: 20px auto; font-size: 1.2rem; color: #555;">
+            Soluções estratégicas que blindam o seu patrimônio e aceleram o seu lucro.
+        </p>
+    </main>
+
+    <footer style="background: var(--dark); color: white; padding: 60px 5%; text-align: center; border-top: 3px solid var(--gold);">
+        <img src="/ativos/images/logopercyatual.jpeg" alt="Percy" style="width: 100px; margin-bottom: 20px; border-radius: 8px;">
+        <p>© 2026 Percy Contabilidade - Negócios Inteligentes</p>
     </footer>
 
     <script>
-        function toggleAudio() {
-            const v = document.getElementById('videoLogo');
-            v.muted = !v.muted;
-            const pulse = document.querySelector('.pulse');
-            pulse.innerText = v.muted ? "🔊 TOQUE PARA OUVIR" : "🔇 TOCANDO ÁUDIO";
+        const v = document.getElementById('videoPercy');
+        const status = document.getElementById('video-status');
+
+        function ativarSom() {
+            v.muted = false;
+            v.currentTime = 0;
+            v.play();
+            status.innerText = "🎵 TOCANDO APRESENTAÇÃO...";
+            status.style.background = "#fff";
         }
+
+        // AJUSTE: Quando o áudio acabar, reinicia em LOOP mas SILENCIOSO
+        v.onended = function() {
+            v.muted = true;
+            v.loop = true;
+            v.play();
+            status.innerText = "✨ VÍDEO EM LOOP (SILENCIOSO)";
+            status.style.background = "var(--gold)";
+        };
     </script>
 
-
-
-</body></html>
+<footer class="site-footer"><img src="/ativos/images/logopercyatual.jpeg" alt="Percy Contabilidade" class="footer-logo"><p>© 2026 Percy Contabilidade</p></footer></body></html>
