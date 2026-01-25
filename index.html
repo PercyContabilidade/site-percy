@@ -23,172 +23,163 @@
             overflow-x: hidden;
         }
 
-        /* 1. CABEÇALHO: APENAS LOGO ANIMADA NO CENTRO */
+        /* 1. CABEÇALHO LIMPO */
         .site-header {
-            padding: 20px;
+            padding: 15px;
             text-align: center;
-            background: rgba(10, 25, 47, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--gold);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            background: rgba(10, 25, 47, 0.9);
         }
         .logo-header {
-            width: 140px;
+            width: 120px;
             border-radius: 8px;
         }
 
-        /* 2. CONTEÚDO CENTRAL: VÍDEO E PORTAIS */
-        .main-content {
+        /* 2. CONTEÚDO PRINCIPAL (LADO A LADO NO PC) */
+        .main-container {
             flex: 1;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: row; /* Lado a lado por padrão */
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
         }
 
-        /* CAIXA DO VÍDEO DE BOAS-VINDAS */
-        .video-welcome-box {
-            max-width: 850px;
-            margin: 0 auto 50px auto;
+        /* AJUSTE PARA CELULAR (EMPILHAR) */
+        @media (max-width: 950px) {
+            .main-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+        }
+
+        /* ÁREA DO VÍDEO VERTICAL */
+        .video-section {
+            flex: 0 0 350px; /* Largura fixa para manter o formato vertical */
+            max-width: 90%;
+        }
+
+        .video-box {
             border: 4px solid var(--gold);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 0 60px rgba(197, 160, 89, 0.3);
+            box-shadow: 0 0 50px rgba(197, 160, 89, 0.3);
             background: #000;
         }
 
-        /* GRID DOS PORTAIS DE DECISÃO */
-        .hub-portais {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 20px;
-        }
-
-        @media (max-width: 800px) { 
-            .hub-portais { grid-template-columns: 1fr; } 
+        /* ÁREA DOS BOTÕES (PORTAIS) */
+        .portals-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 500px;
         }
 
         .card-portal {
             background: rgba(255, 255, 255, 0.03);
             border: 2px solid var(--gold);
-            padding: 50px 30px;
+            padding: 35px;
             border-radius: 20px;
             text-decoration: none;
             color: #fff;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
+            transition: 0.4s;
+            text-align: center;
         }
 
         .card-portal:hover { 
             background: var(--gold); 
             color: var(--dark); 
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.4);
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.4);
         }
 
         .tag-projeto { 
             font-size: 0.75rem; 
             text-transform: uppercase; 
-            letter-spacing: 3px; 
+            letter-spacing: 2px; 
             color: var(--gold); 
-            margin-bottom: 20px; 
-            font-weight: bold; 
-            border: 1px solid var(--gold);
-            padding: 4px 12px;
-            border-radius: 50px;
+            margin-bottom: 12px; 
+            font-weight: bold;
+            display: block;
         }
-        .card-portal:hover .tag-projeto { color: var(--dark); border-color: var(--dark); }
+        .card-portal:hover .tag-projeto { color: var(--dark); }
 
         .titulo-projeto { 
-            font-size: 2.2rem; 
+            font-size: 2rem; 
             margin: 0; 
             font-weight: 900; 
             line-height: 1.1; 
-            text-transform: uppercase;
         }
 
         .desc-projeto {
-            margin-top: 20px;
+            margin-top: 15px;
             font-size: 1rem;
             opacity: 0.8;
-            max-width: 280px;
         }
 
         /* 3. RODAPÉ */
         .site-footer {
-            padding: 60px 20px;
+            padding: 30px 20px;
             background: #060d1a;
             text-align: center;
-            border-top: 1px solid rgba(197, 160, 89, 0.2);
+            border-top: 1px solid rgba(197, 160, 89, 0.1);
         }
-        .footer-logo { 
-            width: 100px; 
-            margin-bottom: 25px; 
-            border-radius: 10px; 
-            filter: grayscale(0.2);
-        }
-        .copyright {
-            font-weight: bold;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-        }
+        .footer-logo { width: 70px; margin-bottom: 10px; opacity: 0.6; }
+        .copyright { font-size: 0.8rem; opacity: 0.5; }
     </style>
 </head>
 <body>
 
-    <!-- CABEÇALHO: APENAS A MARCA NO TOPO -->
     <header class="site-header">
         <video autoplay muted loop playsinline class="logo-header">
             <source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4">
         </video>
     </header>
 
-    <!-- HUB PRINCIPAL -->
-    <main class="main-content">
+    <main class="main-container">
         
-        <!-- VÍDEO DE BOAS-VINDAS E PERSUASÃO -->
-        <div class="video-welcome-box">
-            <video id="videoMain" autoplay muted playsinline style="width: 100%; display: block;">
-                <source src="/ativos/videos/cafterboasvindas.mp4" type="video/mp4">
-                <source src="/ativos/videos/logo-audio.mp4" type="video/mp4">
-            </video>
-            <div onclick="ativarSom()" style="background: var(--gold); color: var(--dark); padding: 15px; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">
-                🔊 TOQUE PARA OUVIR A MENSAGEM DO MESTRE
+        <!-- LADO ESQUERDO: O VÍDEO DO CAFER -->
+        <section class="video-section">
+            <div class="video-box">
+                <video id="videoMain" autoplay muted playsinline style="width: 100%; display: block;">
+                    <source src="/ativos/videos/cafterboasvindas.mp4" type="video/mp4">
+                </video>
+                <div onclick="ativarSom()" style="background: var(--gold); color: var(--dark); padding: 12px; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 0.8rem; text-align: center; letter-spacing: 1px;">
+                    🔊 OUVIR MENSAGEM DO MESTRE
+                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- OS DOIS PORTAIS DE PROJETO -->
-        <div class="hub-portais">
-            
-            <!-- PORTAL 01: MEI -->
+        <!-- LADO DIREITO: OS PORTAIS DE DECISÃO -->
+        <section class="portals-section">
+            <div style="margin-bottom: 10px;">
+                <h1 style="font-size: 2.8rem; margin: 0; color: var(--gold); font-weight: 900;">Seja Bem-vindo!</h1>
+                <p style="font-size: 1.2rem; opacity: 0.7; margin-top: 10px;">Escolha o portal ideal para a sua jornada:</p>
+            </div>
+
             <a href="/mei/soumeilp.html" class="card-portal">
                 <span class="tag-projeto">Projeto 01: O Nascimento</span>
                 <h2 class="titulo-projeto">CHEGUEI,<br>SOU MEI.</h2>
-                <p class="desc-projeto">A base sólida e inteligente para quem está a começar o seu legado.</p>
+                <p class="desc-projeto">Saindo da informalidade com inteligência e segurança.</p>
             </a>
 
-            <!-- PORTAL 02: LTDA -->
             <a href="https://wa.me/5521979667707" target="_blank" class="card-portal">
                 <span class="tag-projeto">Projeto 02: A Evolução</span>
                 <h2 class="titulo-projeto">AVANCEI,<br>SOU LTDA.</h2>
-                <p class="desc-projeto">O jogo dos grandes: status, escala e proteção patrimonial total.</p>
+                <p class="desc-projeto">O jogo dos grandes: status, escala e proteção patrimonial.</p>
             </a>
+        </section>
 
-        </div>
     </main>
 
-    <!-- RODAPÉ: AUTORIDADE -->
     <footer class="site-footer">
-        <img src="/ativos/images/logopercyatual.jpeg" alt="Percy Contabilidade" class="footer-logo">
+        <img src="/ativos/images/logopercyatual.jpeg" alt="Percy" class="footer-logo">
         <p class="copyright">© 2026 PERCY CONTABILIDADE - NEGÓCIOS INTELIGENTES</p>
-        <p style="opacity: 0.4; font-size: 0.75rem; margin-top: 15px;">Nova Iguaçu - Rio de Janeiro | Inteligência Contábil Estratégica</p>
     </footer>
 
     <script>
@@ -198,7 +189,6 @@
             v.currentTime = 0;
             v.play();
         }
-        // Ao terminar o vídeo de boas-vindas, volta para loop silencioso
         v.onended = function() {
             v.muted = true;
             v.loop = true;
