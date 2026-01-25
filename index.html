@@ -1,107 +1,151 @@
-<!DOCTYPE html><html lang="pt-br"><head>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Percy Contabilidade - HUB de Negócios Inteligentes</title>
     <link rel="stylesheet" href="/ativos/css/style.css">
     <style>
-        :root { --gold: #c5a059; --dark: #0a192f; --light: #e6f1ff; --accent: #0b6fb6; }
-        body { margin: 0; font-family: 'Segoe UI', Roboto, sans-serif; background: #fff; color: var(--dark); overflow-x: hidden; }
-        
-        .trindade-header {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr 1fr;
-            gap: 20px;
-            align-items: center;
-            padding: 40px 5%;
-            background: var(--dark);
-            border-bottom: 3px solid var(--gold);
-            color: var(--light);
+        :root { --gold: #c5a059; --dark: #0a192f; --light: #f4f7f9; --accent: #0b6fb6; }
+        body { margin: 0; font-family: 'Segoe UI', Roboto, sans-serif; background: var(--dark); color: #fff; display: flex; flex-direction: column; min-height: 100vh; }
+
+        /* 1. CABEÇALHO: LOGO ANIMADA CENTRAL */
+        .site-header {
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
         }
-        
-        @media (max-width: 900px) {
-            .trindade-header { grid-template-columns: 1fr; text-align: center; padding: 20px; }
+        .logo-header {
+            width: 160px;
+            border-radius: 10px;
+            cursor: pointer;
         }
 
-        .video-container {
-            border: 3px solid var(--gold);
-            border-radius: 15px;
+        /* 2. CONTEÚDO CENTRAL: VÍDEO E PORTAIS */
+        .main-content {
+            flex: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .welcome-video-container {
+            max-width: 850px;
+            margin: 0 auto 50px auto;
+            border: 4px solid var(--gold);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+            box-shadow: 0 0 60px rgba(197, 160, 89, 0.2);
             background: #000;
         }
 
-        .btn-gold {
-            background: var(--gold);
-            color: var(--dark);
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 15px;
-            transition: 0.3s;
+        .hub-portais {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 20px;
         }
-        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3); }
+
+        @media (max-width: 800px) { .hub-portais { grid-template-columns: 1fr; } }
+
+        .card-portal {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid var(--gold);
+            padding: 50px 30px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card-portal:hover { 
+            background: var(--gold); 
+            color: var(--dark); 
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(197, 160, 89, 0.3);
+        }
+
+        .tag-projeto { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--gold); margin-bottom: 20px; font-weight: bold; }
+        .card-portal:hover .tag-projeto { color: var(--dark); }
+
+        .titulo-projeto { font-size: 2.2rem; margin: 0; font-weight: 900; line-height: 1.1; }
+
+        /* 3. RODAPÉ FIXO */
+        .site-footer {
+            padding: 60px 20px;
+            background: #060d1a;
+            text-align: center;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .footer-logo { width: 90px; margin-bottom: 20px; border-radius: 8px; }
     </style>
 </head>
 <body>
 
-    <header class="trindade-header">
-        <!-- ALA OESTE: MEI -->
-        <div style="text-align: left;">
-            <span style="border: 1px solid var(--gold); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; color: var(--gold); font-weight: bold;">● ESPECIALISTA EM MEI</span>
-            <h2 style="font-size: 1.8rem; margin: 15px 0 10px 0;">CHEGUEI,<br>SOU MEI!</h2>
-            <a href="/mei/soumeilp.html" style="color: var(--gold); text-decoration: none; font-weight: bold;">PORTAL DO MEI →</a>
-        </div>
+    <!-- CABEÇALHO: SÓ A MARCA NO CENTRO -->
+    <header class="site-header">
+        <video autoplay muted loop playsinline class="logo-header">
+            <source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4">
+        </video>
+    </header>
 
-        <!-- ALA CENTRAL: VÍDEO -->
-        <div class="video-container">
-            <video autoplay="" muted="" playsinline="" id="videoPercy" style="width: 100%; display: block;">
+    <!-- HUB DE ENTRADA: VÍDEO E DECISÃO -->
+    <main class="main-content">
+        
+        <!-- VÍDEO DE BOAS VINDAS (O SEU VÍDEO CAFERBOASVINDAS) -->
+        <div class="welcome-video-container">
+            <video id="videoPrincipal" autoplay muted playsinline style="width: 100%; display: block;">
+                <source src="/ativos/videos/cafterboasvindas.mp4" type="video/mp4">
                 <source src="/ativos/videos/logo-audio.mp4" type="video/mp4">
             </video>
-            <div id="video-status" onclick="ativarSom()" style="background: var(--gold); color: var(--dark); padding: 8px; font-size: 0.7rem; font-weight: bold; text-align: center; cursor: pointer;">
-                🔊 CLIQUE PARA OUVIR A APRESENTAÇÃO
+            <div onclick="ativarSom()" style="background: var(--gold); color: var(--dark); padding: 12px; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 0.8rem;">
+                🔊 TOQUE PARA OUVIR A MENSAGEM DO MESTRE
             </div>
         </div>
 
-        <!-- ALA LESTE: CONSULTORIA -->
-        <div style="text-align: right;">
-            <h2 style="font-size: 1.8rem; margin: 0 0 10px 0;">INTELIGÊNCIA<br>CONTÁBIL</h2>
-            <a href="https://wa.me/5521979667707" target="_blank" class="btn-gold">SOLICITAR CONSULTORIA</a>
-        </div>
-    </header>
+        <!-- OS DOIS PORTAIS DE PROJETO -->
+        <div class="hub-portais">
+            
+            <!-- PORTAL 01: MEI -->
+            <a href="/mei/soumeilp.html" class="card-portal">
+                <span class="tag-projeto">Projeto 01: O Nascimento</span>
+                <h2 class="titulo-projeto">CHEGUEI,<br>SOU MEI.</h2>
+                <p style="margin-top: 20px; font-size: 1rem; opacity: 0.8;">A base sólida para quem está a começar o seu legado.</p>
+            </a>
 
-    <main style="padding: 60px 5%; text-align: center;">
-        <h1 style="font-size: 2.8rem;">Sua Empresa Precisa de <span style="color: var(--accent);">Inteligência</span></h1>
-        <p style="max-width: 800px; margin: 20px auto; font-size: 1.2rem; color: #555;">
-            Soluções estratégicas que blindam o seu patrimônio e aceleram o seu lucro.
-        </p>
+            <!-- PORTAL 02: LTDA -->
+            <a href="https://wa.me/5521979667707" target="_blank" class="card-portal">
+                <span class="tag-projeto">Projeto 02: A Evolução</span>
+                <h2 class="titulo-projeto">AVANCEI,<br>SOU LTDA.</h2>
+                <p style="margin-top: 20px; font-size: 1rem; opacity: 0.8;">O jogo dos grandes: status e proteção patrimonial.</p>
+            </a>
+
+        </div>
     </main>
 
-    <!-- RODAPÉ COM A ETIQUETA DE SEGURANÇA (class="site-footer") -->
-    <footer class="site-footer" style="background: var(--dark); color: white; padding: 60px 5%; text-align: center; border-top: 3px solid var(--gold);">
-        <img src="/ativos/images/logopercyatual.jpeg" alt="Percy" style="width: 100px; margin-bottom: 20px; border-radius: 8px;">
-        <p style="font-weight: bold;">© 2026 Percy Contabilidade - Negócios Inteligentes</p>
-        <p style="opacity: 0.7; margin: 10px 0;">Rua Dr. Paulo Fróes Machado, 29, Centro, Nova Iguaçu - RJ</p>
+    <!-- RODAPÉ CONFIGURADO -->
+    <footer class="site-footer">
+        <img src="/ativos/images/logopercyatual.jpeg" alt="Percy Contabilidade" class="footer-logo">
+        <p style="font-weight: bold; letter-spacing: 1px;">© 2026 PERCY CONTABILIDADE - NEGÓCIOS INTELIGENTES</p>
+        <p style="opacity: 0.5; font-size: 0.8rem; margin-top: 10px;">Nova Iguaçu - Rio de Janeiro</p>
     </footer>
 
     <script>
-        const v = document.getElementById('videoPercy');
-        const status = document.getElementById('video-status');
+        const v = document.getElementById('videoPrincipal');
         function ativarSom() {
             v.muted = false;
             v.currentTime = 0;
             v.play();
-            status.innerText = "🎵 TOCANDO COM ÁUDIO...";
-            status.style.background = "#fff";
         }
+        // Se o vídeo de boas-vindas acabar, ele reinicia em loop silencioso para manter o movimento
         v.onended = function() {
             v.muted = true;
             v.loop = true;
             v.play();
-            status.innerText = "✨ VÍDEO EM LOOP (SILENCIOSO)";
-            status.style.background = "var(--gold)";
         };
     </script>
-
-</body></html>
+</body>
+</html>
