@@ -1,43 +1,80 @@
-<!DOCTYPE html><html lang="pt-br"><head>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Cheguei, Sou MEI! - Percy Contabilidade</title>
-    <link rel="stylesheet" href="/ativos/css/style.css">
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #fff; text-align: center; color: #0a192f; }
-        header { background: #0a192f; padding: 30px; border-bottom: 3px solid #c5a059; }
-        .logo-header { width: 140px; border-radius: 10px; margin: 0 auto; display: block; }
-        .hero-section { padding: 60px 20px; background: #f8f9fa; }
-        .btn-wa { background: #25d366; color: white; padding: 18px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin: 20px 10px; box-shadow: 0 5px 15px rgba(37,211,102,0.3); }
-        .btn-back { border: 2px solid #0b6fb6; color: #0b6fb6; padding: 18px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin: 20px 10px; }
-        footer { background: #0a192f; color: white; padding: 50px 20px; border-top: 3px solid #c5a059; margin-top: 50px; }
+        :root { --gold: #c5a059; --dark: #0a192f; }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--dark); color: #fff; display: flex; flex-direction: column; min-height: 100vh; }
+        .site-header { padding: 20px; text-align: center; background: rgba(10,25,47,0.9); border-bottom: 2px solid var(--gold); }
+        .logo-header { width: 130px; }
+        .main-content { flex: 1; max-width: 1100px; margin: 0 auto; padding: 40px 20px; text-align: center; }
+        .intro-text h1 { font-size: 2.5rem; color: var(--gold); margin-bottom: 10px; }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
+        .btn-service { background: rgba(255,255,255,0.05); border: 1px solid rgba(197,160,89,0.3); border-radius: 15px; padding: 30px 20px; text-decoration: none; color: #fff; transition: 0.3s; display: flex; flex-direction: column; align-items: center; }
+        .btn-service:hover { background: var(--gold); color: var(--dark); transform: translateY(-5px); border-color: var(--gold); }
+        .btn-service span { font-weight: 800; font-size: 1.1rem; text-transform: uppercase; }
+
+        /* DESTAQUE PARA OS NOVOS BOTÕES */
+        .btn-special { border: 2px solid var(--gold); box-shadow: 0 0 15px rgba(197,160,89,0.2); }
+        
+        .btn-back { display: inline-block; margin-top: 50px; color: var(--gold); text-decoration: none; font-weight: bold; border: 1px solid var(--gold); padding: 10px 25px; border-radius: 50px; }
+        .site-footer { padding: 40px 20px; background: #060d1a; text-align: center; border-top: 1px solid rgba(197,160,89,0.2); }
+        .footer-logo { width: 80px; }
     </style>
 </head>
 <body>
 
-    <!-- CABEÇALHO COM ETIQUETA DE SEGURANÇA (class="logo-animada") -->
-    <header>
-        <video autoplay="" muted="" loop="" playsinline="" class="logo-header logo-animada">
-            <source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4">
-        </video>
+    <header class="site-header">
+        <a href="/index.html"><video autoplay muted loop playsinline class="logo-header"><source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4"></video></a>
     </header>
 
-    <main class="hero-section">
-        <h1 style="font-size: 3rem; margin-bottom: 10px;">Cheguei, Sou <span style="color: #c5a059;">MEI</span>!</h1>
-        <p style="font-size: 1.3rem; color: #555; max-width: 600px; margin: 0 auto;">O suporte contábil e estratégico para você conquistar o mercado.</p>
-        
-        <div style="margin-top: 30px;">
-            <a href="https://wa.me/5521979667707" target="_blank" class="btn-wa">🚀 QUERO CRESCER AGORA</a>
-            <a href="/index.html" class="btn-back">VOLTAR AO MENU</a>
+    <main class="main-content">
+        <div class="intro-text">
+            <h1>Cheguei, Sou MEI!</h1>
+            <p>O suporte completo para quem está começando o seu legado.</p>
         </div>
+
+        <div class="services-grid">
+            
+            <!-- NOVOS BOTÕES ESTRATÉGICOS -->
+            <a href="/mei/questionario.html" class="btn-service btn-special">
+                <span>📝 Perfil MEI de Sucesso</span>
+                <small style="margin-top: 5px; opacity: 0.7;">Faça o teste agora!</small>
+            </a>
+
+            <a href="/mei/mei-ou-me.html" class="btn-service btn-special">
+                <span>📊 Comparativo MEI vs ME</span>
+                <small style="margin-top: 5px; opacity: 0.7;">Descubra qual é melhor para você.</small>
+            </a>
+
+            <hr style="grid-column: 1 / -1; border: 0; border-top: 1px solid rgba(197,160,89,0.1); margin: 20px 0;">
+
+            <!-- SERVIÇOS TRADICIONAIS -->
+            <a href="https://wa.me/5521979667707?text=Olá! Quero abrir o meu MEI." target="_blank" class="btn-service">
+                <span>🚀 Abertura de MEI</span>
+            </a>
+            <a href="https://wa.me/5521979667707?text=Olá! Preciso fazer minha declaração anual DASN." target="_blank" class="btn-service">
+                <span>📅 Declaração Anual (DASN)</span>
+            </a>
+            <a href="https://wa.me/5521979667707?text=Olá! Preciso emitir as minhas guias mensais DAS." target="_blank" class="btn-service">
+                <span>💰 Emissão de Boletos (DAS)</span>
+            </a>
+            <a href="https://wa.me/5521979667707?text=Olá! Meu MEI cresceu e quero passar para LTDA." target="_blank" class="btn-service" style="background: rgba(11, 111, 182, 0.1);">
+                <span style="color: #3b82f6;">📈 Migrar para LTDA</span>
+            </a>
+
+        </div>
+
+        <a href="/index.html" class="btn-back">← VOLTAR AO PORTAL PRINCIPAL</a>
     </main>
 
-    <!-- RODAPÉ COM ETIQUETA DE SEGURANÇA (class="site-footer") -->
-    <footer class="site-footer" style="background: #0a192f; color: white; padding: 50px 20px; border-top: 3px solid #c5a059; margin-top: 50px;">
-        <img src="/ativos/images/logopercyatual.jpeg" alt="Percy" style="width: 90px; margin-bottom: 15px; border-radius: 8px;">
-        <p style="font-weight: bold; margin: 0;">© 2026 Percy Contabilidade - Negócios Inteligentes</p>
-        <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 10px;">Nova Iguaçu - RJ</p>
+    <footer class="site-footer">
+        <img src="/ativos/images/logopercyatual.jpeg" class="footer-logo">
+        <p>© 2026 PERCY CONTABILIDADE - NEGÓCIOS INTELIGENTES</p>
     </footer>
 
-
-</body></html>
+</body>
+</html>
