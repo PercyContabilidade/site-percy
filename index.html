@@ -6,19 +6,37 @@
     <title>Percy Contabilidade - HUB de Negócios Inteligentes</title>
     <link rel="stylesheet" href="/ativos/css/style.css">
     <style>
-        :root { --gold: #c5a059; --dark: #0a192f; --light: #f4f7f9; --accent: #0b6fb6; }
-        body { margin: 0; font-family: 'Segoe UI', Roboto, sans-serif; background: var(--dark); color: #fff; display: flex; flex-direction: column; min-height: 100vh; }
+        :root { 
+            --gold: #c5a059; 
+            --dark: #0a192f; 
+            --light: #f4f7f9; 
+            --accent: #0b6fb6; 
+        }
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            background: var(--dark); 
+            color: #fff; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+            overflow-x: hidden;
+        }
 
-        /* 1. CABEÇALHO: LOGO ANIMADA CENTRAL */
+        /* 1. CABEÇALHO: APENAS LOGO ANIMADA NO CENTRO */
         .site-header {
-            padding: 30px 20px;
+            padding: 20px;
             text-align: center;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            background: rgba(10, 25, 47, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         .logo-header {
-            width: 160px;
-            border-radius: 10px;
-            cursor: pointer;
+            width: 140px;
+            border-radius: 8px;
         }
 
         /* 2. CONTEÚDO CENTRAL: VÍDEO E PORTAIS */
@@ -30,16 +48,18 @@
             text-align: center;
         }
 
-        .welcome-video-container {
+        /* CAIXA DO VÍDEO DE BOAS-VINDAS */
+        .video-welcome-box {
             max-width: 850px;
             margin: 0 auto 50px auto;
             border: 4px solid var(--gold);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 0 60px rgba(197, 160, 89, 0.2);
+            box-shadow: 0 0 60px rgba(197, 160, 89, 0.3);
             background: #000;
         }
 
+        /* GRID DOS PORTAIS DE DECISÃO */
         .hub-portais {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -47,7 +67,9 @@
             margin-top: 20px;
         }
 
-        @media (max-width: 800px) { .hub-portais { grid-template-columns: 1fr; } }
+        @media (max-width: 800px) { 
+            .hub-portais { grid-template-columns: 1fr; } 
+        }
 
         .card-portal {
             background: rgba(255, 255, 255, 0.03);
@@ -56,52 +78,88 @@
             border-radius: 20px;
             text-decoration: none;
             color: #fff;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+            overflow: hidden;
         }
+
         .card-portal:hover { 
             background: var(--gold); 
             color: var(--dark); 
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(197, 160, 89, 0.3);
+            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.4);
         }
 
-        .tag-projeto { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--gold); margin-bottom: 20px; font-weight: bold; }
-        .card-portal:hover .tag-projeto { color: var(--dark); }
+        .tag-projeto { 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            color: var(--gold); 
+            margin-bottom: 20px; 
+            font-weight: bold; 
+            border: 1px solid var(--gold);
+            padding: 4px 12px;
+            border-radius: 50px;
+        }
+        .card-portal:hover .tag-projeto { color: var(--dark); border-color: var(--dark); }
 
-        .titulo-projeto { font-size: 2.2rem; margin: 0; font-weight: 900; line-height: 1.1; }
+        .titulo-projeto { 
+            font-size: 2.2rem; 
+            margin: 0; 
+            font-weight: 900; 
+            line-height: 1.1; 
+            text-transform: uppercase;
+        }
 
-        /* 3. RODAPÉ FIXO */
+        .desc-projeto {
+            margin-top: 20px;
+            font-size: 1rem;
+            opacity: 0.8;
+            max-width: 280px;
+        }
+
+        /* 3. RODAPÉ */
         .site-footer {
             padding: 60px 20px;
             background: #060d1a;
             text-align: center;
             border-top: 1px solid rgba(197, 160, 89, 0.2);
         }
-        .footer-logo { width: 90px; margin-bottom: 20px; border-radius: 8px; }
+        .footer-logo { 
+            width: 100px; 
+            margin-bottom: 25px; 
+            border-radius: 10px; 
+            filter: grayscale(0.2);
+        }
+        .copyright {
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
 
-    <!-- CABEÇALHO: SÓ A MARCA NO CENTRO -->
+    <!-- CABEÇALHO: APENAS A MARCA NO TOPO -->
     <header class="site-header">
         <video autoplay muted loop playsinline class="logo-header">
             <source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4">
         </video>
     </header>
 
-    <!-- HUB DE ENTRADA: VÍDEO E DECISÃO -->
+    <!-- HUB PRINCIPAL -->
     <main class="main-content">
         
-        <!-- VÍDEO DE BOAS VINDAS (O SEU VÍDEO CAFERBOASVINDAS) -->
-        <div class="welcome-video-container">
-            <video id="videoPrincipal" autoplay muted playsinline style="width: 100%; display: block;">
+        <!-- VÍDEO DE BOAS-VINDAS E PERSUASÃO -->
+        <div class="video-welcome-box">
+            <video id="videoMain" autoplay muted playsinline style="width: 100%; display: block;">
                 <source src="/ativos/videos/cafterboasvindas.mp4" type="video/mp4">
                 <source src="/ativos/videos/logo-audio.mp4" type="video/mp4">
             </video>
-            <div onclick="ativarSom()" style="background: var(--gold); color: var(--dark); padding: 12px; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 0.8rem;">
+            <div onclick="ativarSom()" style="background: var(--gold); color: var(--dark); padding: 15px; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">
                 🔊 TOQUE PARA OUVIR A MENSAGEM DO MESTRE
             </div>
         </div>
@@ -113,34 +171,34 @@
             <a href="/mei/soumeilp.html" class="card-portal">
                 <span class="tag-projeto">Projeto 01: O Nascimento</span>
                 <h2 class="titulo-projeto">CHEGUEI,<br>SOU MEI.</h2>
-                <p style="margin-top: 20px; font-size: 1rem; opacity: 0.8;">A base sólida para quem está a começar o seu legado.</p>
+                <p class="desc-projeto">A base sólida e inteligente para quem está a começar o seu legado.</p>
             </a>
 
             <!-- PORTAL 02: LTDA -->
             <a href="https://wa.me/5521979667707" target="_blank" class="card-portal">
                 <span class="tag-projeto">Projeto 02: A Evolução</span>
                 <h2 class="titulo-projeto">AVANCEI,<br>SOU LTDA.</h2>
-                <p style="margin-top: 20px; font-size: 1rem; opacity: 0.8;">O jogo dos grandes: status e proteção patrimonial.</p>
+                <p class="desc-projeto">O jogo dos grandes: status, escala e proteção patrimonial total.</p>
             </a>
 
         </div>
     </main>
 
-    <!-- RODAPÉ CONFIGURADO -->
+    <!-- RODAPÉ: AUTORIDADE -->
     <footer class="site-footer">
         <img src="/ativos/images/logopercyatual.jpeg" alt="Percy Contabilidade" class="footer-logo">
-        <p style="font-weight: bold; letter-spacing: 1px;">© 2026 PERCY CONTABILIDADE - NEGÓCIOS INTELIGENTES</p>
-        <p style="opacity: 0.5; font-size: 0.8rem; margin-top: 10px;">Nova Iguaçu - Rio de Janeiro</p>
+        <p class="copyright">© 2026 PERCY CONTABILIDADE - NEGÓCIOS INTELIGENTES</p>
+        <p style="opacity: 0.4; font-size: 0.75rem; margin-top: 15px;">Nova Iguaçu - Rio de Janeiro | Inteligência Contábil Estratégica</p>
     </footer>
 
     <script>
-        const v = document.getElementById('videoPrincipal');
+        const v = document.getElementById('videoMain');
         function ativarSom() {
             v.muted = false;
             v.currentTime = 0;
             v.play();
         }
-        // Se o vídeo de boas-vindas acabar, ele reinicia em loop silencioso para manter o movimento
+        // Ao terminar o vídeo de boas-vindas, volta para loop silencioso
         v.onended = function() {
             v.muted = true;
             v.loop = true;
