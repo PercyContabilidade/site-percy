@@ -23,32 +23,34 @@
             overflow-x: hidden;
         }
 
-        /* 1. CABEÇALHO LIMPO */
+        /* 1. CABEÇALHO: MARCA NO TOPO */
         .site-header {
             padding: 15px;
             text-align: center;
             border-bottom: 1px solid rgba(197, 160, 89, 0.2);
             background: rgba(10, 25, 47, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         .logo-header {
             width: 120px;
             border-radius: 8px;
         }
 
-        /* 2. CONTEÚDO PRINCIPAL (LADO A LADO NO PC) */
+        /* 2. CONTEÚDO PRINCIPAL (LAYOUT LADO A LADO) */
         .main-container {
             flex: 1;
             max-width: 1200px;
             margin: 0 auto;
             padding: 30px 20px;
             display: flex;
-            flex-direction: row; /* Lado a lado por padrão */
+            flex-direction: row;
             align-items: center;
             justify-content: center;
             gap: 50px;
         }
 
-        /* AJUSTE PARA CELULAR (EMPILHAR) */
         @media (max-width: 950px) {
             .main-container {
                 flex-direction: column;
@@ -57,9 +59,9 @@
             }
         }
 
-        /* ÁREA DO VÍDEO VERTICAL */
+        /* ÁREA DO VÍDEO VERTICAL (CAFER) */
         .video-section {
-            flex: 0 0 350px; /* Largura fixa para manter o formato vertical */
+            flex: 0 0 350px;
             max-width: 90%;
         }
 
@@ -71,7 +73,7 @@
             background: #000;
         }
 
-        /* ÁREA DOS BOTÕES (PORTAIS) */
+        /* ÁREA DOS PORTAIS DE DECISÃO */
         .portals-section {
             flex: 1;
             display: flex;
@@ -122,7 +124,7 @@
             opacity: 0.8;
         }
 
-        /* 3. RODAPÉ */
+        /* 3. RODAPÉ FIXO */
         .site-footer {
             padding: 30px 20px;
             background: #060d1a;
@@ -162,16 +164,18 @@
                 <p style="font-size: 1.2rem; opacity: 0.7; margin-top: 10px;">Escolha o portal ideal para a sua jornada:</p>
             </div>
 
+            <!-- BOTÃO MEI -->
             <a href="/mei/soumeilp.html" class="card-portal">
                 <span class="tag-projeto">Projeto 01: O Nascimento</span>
                 <h2 class="titulo-projeto">CHEGUEI,<br>SOU MEI.</h2>
                 <p class="desc-projeto">Saindo da informalidade com inteligência e segurança.</p>
             </a>
 
-            <a href="https://wa.me/5521979667707" target="_blank" class="card-portal">
-                <span class="tag-projeto">Projeto 02: A Evolução</span>
+            <!-- BOTÃO LTDA (LINK ABSOLUTO PARA CONSULTORIA) -->
+            <a href="https://percycontabilidade.github.io/consultoria/" class="card-portal" style="border-color: var(--accent);">
+                <span class="tag-projeto" style="color: var(--accent);">Projeto 02: A Evolução</span>
                 <h2 class="titulo-projeto">AVANCEI,<br>SOU LTDA.</h2>
-                <p class="desc-projeto">O jogo dos grandes: status, escala e proteção patrimonial.</p>
+                <p class="desc-projeto">O jogo dos grandes: inteligência contábil premium e consultoria robusta.</p>
             </a>
         </section>
 
