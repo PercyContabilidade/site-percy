@@ -39,20 +39,23 @@
             font-weight: bold;
             display: inline-block;
             margin-top: 15px;
+            transition: 0.3s;
         }
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3); }
     </style>
 </head>
 <body>
 
     <header class="trindade-header">
+        <!-- ALA OESTE: MEI -->
         <div style="text-align: left;">
             <span style="border: 1px solid var(--gold); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; color: var(--gold); font-weight: bold;">● ESPECIALISTA EM MEI</span>
             <h2 style="font-size: 1.8rem; margin: 15px 0 10px 0;">CHEGUEI,<br>SOU MEI!</h2>
             <a href="/mei/soumeilp.html" style="color: var(--gold); text-decoration: none; font-weight: bold;">PORTAL DO MEI →</a>
         </div>
 
+        <!-- ALA CENTRAL: VÍDEO -->
         <div class="video-container">
-            <!-- VÍDEO SEM LOOP NO SOM: TOCA UMA VEZ E FICA VISUAL -->
             <video autoplay="" muted="" playsinline="" id="videoPercy" style="width: 100%; display: block;">
                 <source src="/ativos/videos/logo-audio.mp4" type="video/mp4">
             </video>
@@ -61,9 +64,10 @@
             </div>
         </div>
 
+        <!-- ALA LESTE: CONSULTORIA -->
         <div style="text-align: right;">
             <h2 style="font-size: 1.8rem; margin: 0 0 10px 0;">INTELIGÊNCIA<br>CONTÁBIL</h2>
-            <a href="https://wa.me/5521999999999" class="btn-gold">SOLICITAR CONSULTORIA</a>
+            <a href="https://wa.me/5521979667707" target="_blank" class="btn-gold">SOLICITAR CONSULTORIA</a>
         </div>
     </header>
 
@@ -74,24 +78,23 @@
         </p>
     </main>
 
-    <footer style="background: var(--dark); color: white; padding: 60px 5%; text-align: center; border-top: 3px solid var(--gold);">
+    <!-- RODAPÉ COM A ETIQUETA DE SEGURANÇA (class="site-footer") -->
+    <footer class="site-footer" style="background: var(--dark); color: white; padding: 60px 5%; text-align: center; border-top: 3px solid var(--gold);">
         <img src="/ativos/images/logopercyatual.jpeg" alt="Percy" style="width: 100px; margin-bottom: 20px; border-radius: 8px;">
-        <p>© 2026 Percy Contabilidade - Negócios Inteligentes</p>
+        <p style="font-weight: bold;">© 2026 Percy Contabilidade - Negócios Inteligentes</p>
+        <p style="opacity: 0.7; margin: 10px 0;">Rua Dr. Paulo Fróes Machado, 29, Centro, Nova Iguaçu - RJ</p>
     </footer>
 
     <script>
         const v = document.getElementById('videoPercy');
         const status = document.getElementById('video-status');
-
         function ativarSom() {
             v.muted = false;
             v.currentTime = 0;
             v.play();
-            status.innerText = "🎵 TOCANDO APRESENTAÇÃO...";
+            status.innerText = "🎵 TOCANDO COM ÁUDIO...";
             status.style.background = "#fff";
         }
-
-        // AJUSTE: Quando o áudio acabar, reinicia em LOOP mas SILENCIOSO
         v.onended = function() {
             v.muted = true;
             v.loop = true;
@@ -101,4 +104,4 @@
         };
     </script>
 
-<footer class="site-footer"><img src="/ativos/images/logopercyatual.jpeg" alt="Percy Contabilidade" class="footer-logo"><p>© 2026 Percy Contabilidade</p></footer></body></html>
+</body></html>
