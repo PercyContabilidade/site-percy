@@ -10,71 +10,61 @@
         .site-header { padding: 15px; text-align: center; border-bottom: 1px solid rgba(197,160,89,0.2); background: rgba(10,25,47,0.9); }
         .logo-header { width: 100px; border-radius: 8px; }
         .container { max-width: 700px; margin: 40px auto; padding: 30px; background: rgba(255,255,255,0.05); border: 1px solid var(--gold); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        h2 { color: var(--gold); border-bottom: 2px solid var(--gold); padding-bottom: 10px; }
+        h2 { color: var(--gold); border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-top: 0; }
         hr { border: 0; border-top: 1px solid rgba(197,160,89,0.2); margin: 20px 0; }
-        p { font-weight: bold; color: var(--gold); }
-        label { display: block; margin-bottom: 10px; cursor: pointer; transition: 0.3s; }
-        label:hover { color: var(--gold); }
-        input[type="text"] { background: transparent; border: none; border-bottom: 1px dashed var(--gold); color: #fff; padding: 5px; width: 60%; outline: none; }
-        button { background-color: var(--gold); color: var(--dark); padding: 15px 20px; border: none; border-radius: 10px; cursor: pointer; display: block; width: 100%; font-size: 1.1em; font-weight: bold; text-transform: uppercase; margin-top: 30px; transition: 0.4s; }
+        p { font-weight: bold; color: var(--gold); margin-bottom: 15px; }
+        label { display: block; margin-bottom: 12px; cursor: pointer; transition: 0.3s; padding: 5px; border-radius: 5px; }
+        label:hover { background: rgba(197,160,89,0.1); }
+        input[type="text"] { background: transparent; border: none; border-bottom: 1px dashed var(--gold); color: #fff; padding: 5px; width: 80%; outline: none; }
+        button { background-color: var(--gold); color: var(--dark); padding: 18px 20px; border: none; border-radius: 10px; cursor: pointer; display: block; width: 100%; font-size: 1.2em; font-weight: bold; text-transform: uppercase; margin-top: 30px; transition: 0.4s; }
         button:hover { background: #fff; transform: scale(1.02); }
         .site-footer { padding: 30px; text-align: center; background: #060d1a; margin-top: 50px; }
         .footer-logo { width: 80px; opacity: 0.6; }
     </style>
 </head>
 <body>
+    <header class="site-header">
+        <a href="/mei/soumeilp.html"><video autoplay muted loop playsinline class="logo-header"><source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4"></video></a>
+    </header>
 
-<header class="site-header">
-    <a href="/mei/soumeilp.html">
-        <video autoplay muted loop playsinline class="logo-header">
-            <source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4">
-        </video>
-    </a>
-</header>
+    <div class="container">
+        <form name="formulario-mei" method="POST" data-netlify="true" action="/sucesso.html">
+            <input type="hidden" name="form-name" value="formulario-mei" />
+            <h2>✅ Perfil do MEI de Sucesso</h2>
+            <p>Descubra o que torna um MEI imparável!</p>
 
-<div class="container">
-    <form name="formulario-mei" method="POST" data-netlify="true" action="/sucesso.html">
-        <input type="hidden" name="form-name" value="formulario-mei" />
+            <p>🟡 1. Qual é o seu segmento de atuação?</p>
+            <label><input type="radio" name="segmento" value="Alimentação" required> Alimentação</label>
+            <label><input type="radio" name="segmento" value="Serviços"> Serviços em Geral</label>
+            <label><input type="radio" name="segmento" value="Tecnologia"> Tecnologia / Digital</label>
+            <label><input type="radio" name="segmento" value="Outro"> Outro: <input type="text" name="segmento_outro"></label>
 
-        <h2>✅ Questionário: Perfil do MEI de Sucesso</h2>
-        <p>Descubra o seu momento atual e prepare-se para escalar.</p>
+            <hr>
 
-        <p>🟡 1. Qual é o seu segmento de atuação como MEI?</p>
-        <label><input type="radio" name="segmento" value="Alimentação" required> Alimentação</label>
-        <label><input type="radio" name="segmento" value="Beleza/Estética"> Beleza/Estética</label>
-        <label><input type="radio" name="segmento" value="Moda"> Moda</label>
-        <label><input type="radio" name="segmento" value="Serviços gerais"> Serviços gerais</label>
-        <label><input type="radio" name="segmento" value="Tecnologia"> Tecnologia</label>
-        <label><input type="radio" name="segmento" value="Outro"> Outro: <input type="text" name="segmento_outro" placeholder="Especifique..."></label>
+            <p>🔥 2. Qual a sua maior dificuldade hoje?</p>
+            <label><input type="radio" name="dificuldade" value="Vendas" required> Atrair novos clientes</label>
+            <label><input type="radio" name="dificuldade" value="Finanças"> Organizar o dinheiro</label>
+            <label><input type="radio" name="dificuldade" value="Burocracia"> Medo da Receita Federal</label>
 
-        <hr>
+            <hr>
 
-        <p>💬 2. Qual foi sua maior dificuldade no início?</p>
-        <label><input type="radio" name="dificuldade_inicio" value="Atrair clientes" required> Atrair clientes</label>
-        <label><input type="radio" name="dificuldade_inicio" value="Organizar finanças"> Organizar finanças</label>
-        <label><input type="radio" name="dificuldade_inicio" value="Entender burocracias"> Entender burocracias</label>
-        <label><input type="radio" name="dificuldade_inicio" value="Outro"> Outro: <input type="text" name="dificuldade_outro"></label>
+            <p>🎯 3. Onde você quer estar em 1 ano?</p>
+            <label><input type="radio" name="meta" value="Faturamento" required> Faturando o dobro</label>
+            <label><input type="radio" name="meta" value="Equipe"> Contratando meu primeiro funcionário</label>
+            <label><input type="radio" name="meta" value="Escala"> Migrando para Microempresa (LTDA)</label>
 
-        <hr>
+            <hr>
 
-        <p>🎯 3. Qual é o seu maior objetivo hoje?</p>
-        <label><input type="radio" name="objetivo_hoje" value="Viver exclusivamente do negócio" required> Viver do negócio</label>
-        <label><input type="radio" name="objetivo_hoje" value="Migrar para ME/LTDA"> Migrar para o jogo dos grandes (ME/LTDA)</label>
-        <label><input type="radio" name="objetivo_hoje" value="Escalar faturamento"> Aumentar faturamento drasticamente</label>
+            <p>✨ Complete a frase: Ser MEI de sucesso é...</p>
+            <input type="text" name="definicao" style="width: 100%;" placeholder="Sua visão de futuro..." required>
+            
+            <button type="submit">Enviar Respostas ao Cafer</button>
+        </form>
+    </div>
 
-        <hr>
-
-        <p>✨ 4. Complete a frase: Ser MEI de sucesso é...</p>
-        <input type="text" name="definicao_sucesso" style="width: 100%; border-bottom: 1px solid var(--gold);" placeholder="Sua definição em poucas palavras..." required>
-        
-        <button type="submit">Enviar Respostas para o Cafer</button>
-    </form>
-</div>
-
-<footer class="site-footer">
-    <img src="/ativos/images/logopercyatual.jpeg" class="footer-logo"><br>
-    <small>© 2026 Percy Contabilidade - Inteligência para o seu Sucesso</small>
-</footer>
-
+    <footer class="site-footer">
+        <img src="/ativos/images/logopercyatual.jpeg" class="footer-logo"><br>
+        <small>© 2026 Percy Contabilidade - Inteligência Contábil</small>
+    </footer>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEI ou ME? - Percy Contabilidade</title>
     <style>
-        :root { --gold: #c5a059; --dark: #0a192f; --accent: #3b82f6; }
+        :root { --gold: #c5a059; --dark: #0a192f; }
         body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; background-color: var(--dark); color: #fff; }
         .site-header { padding: 15px; text-align: center; border-bottom: 1px solid rgba(197,160,89,0.2); background: rgba(10,25,47,0.9); }
         .logo-header { width: 100px; }
@@ -13,43 +13,50 @@
         .badge { background: rgba(197,160,89,0.2); color: var(--gold); padding: 8px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--gold); }
         h1 { font-size: 3rem; margin: 20px 0; line-height: 1.1; }
         h1 span { color: var(--gold); }
-        .description { color: #94a3b8; max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; }
-        .cards-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 20px; }
-        .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(197,160,89,0.3); padding: 30px; border-radius: 20px; width: 300px; transition: 0.4s; }
+        .description { color: #94a3b8; max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.6; }
+        .cards-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 20px; max-width: 1000px; margin: 0 auto; }
+        .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(197,160,89,0.3); padding: 30px; border-radius: 20px; width: 320px; transition: 0.4s; text-align: left; }
         .card:hover { border-color: var(--gold); transform: translateY(-10px); background: rgba(255,255,255,0.08); }
-        .card h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--gold); }
-        .card p { color: #ccc; line-height: 1.4; }
-        .btn-whats { display: inline-block; margin-top: 40px; background: #25d366; color: #fff; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; }
-        .btn-whats:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(37,211,102,0.4); }
-    </small>
+        .card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--gold); display: flex; align-items: center; gap: 10px; }
+        .card ul { list-style: none; padding: 0; color: #ccc; font-size: 0.95rem; }
+        .card li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 8px; }
+        .card li::before { content: "✓"; color: var(--gold); font-weight: bold; }
+        .btn-whats { display: inline-block; margin-top: 50px; background: #25d366; color: #fff; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s; box-shadow: 0 10px 20px rgba(37,211,102,0.2); }
+        .btn-whats:hover { transform: scale(1.05); background: #1eb954; }
     </style>
 </head>
 <body>
+    <header class="site-header">
+        <a href="/mei/soumeilp.html"><video autoplay muted loop playsinline class="logo-header"><source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4"></video></a>
+    </header>
 
-<header class="site-header">
-    <video autoplay muted loop playsinline class="logo-header">
-        <source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4">
-    </video>
-</header>
+    <section class="hero">
+        <span class="badge">Decisão Estratégica Percy</span>
+        <h1>MEI ou ME?<br>Decida o futuro do<br><span>seu negócio.</span></h1>
+        <p class="description">Não deixe que o limite de faturamento trave o seu crescimento. Entenda a hora certa de subir de nível.</p>
 
-<section class="hero">
-    <span class="badge">Decisão Estratégica Percy</span>
-    <h1>MEI ou ME?<br>Decida o futuro do<br><span>seu negócio.</span></h1>
-    <p class="description">Entenda as diferenças reais e descubra se já é hora de deixar de ser "peixe pequeno" para se tornar o tubarão do seu mercado.</p>
-
-    <div class="cards-container">
-        <div class="card">
-            <h3>🛡️ Sou MEI</h3>
-            <p>Faturamento até 81k/ano. Imposto fixo e baixo. Ideal para o início da jornada solo.</p>
+        <div class="cards-container">
+            <div class="card">
+                <h3>🛡️ Sou MEI</h3>
+                <ul>
+                    <li>Faturamento até R$ 81.000/ano</li>
+                    <li>Apenas 1 funcionário</li>
+                    <li>Guia única DAS (baixo custo)</li>
+                    <li>Ideal para o início solo</li>
+                </ul>
+            </div>
+            <div class="card" style="border-color: #3b82f6;">
+                <h3 style="color: #3b82f6;">🚀 Sou ME (LTDA)</h3>
+                <ul>
+                    <li>Faturamento ilimitado (pague pelo que vende)</li>
+                    <li>Pode ter sócios e equipe maior</li>
+                    <li>Status de autoridade no mercado</li>
+                    <li>Proteção jurídica do patrimônio pessoal</li>
+                </ul>
+            </div>
         </div>
-        <div class="card">
-            <h3>🚀 Sou ME (LTDA)</h3>
-            <p>Faturamento ilimitado. Contrate mais funcionários. Status de grande empresa e maior proteção jurídica.</p>
-        </div>
-    </div>
 
-    <a href="https://wa.me/5521979667707?text=Olá Cafer, vi o comparativo MEI vs ME e quero saber qual o melhor para mim agora." class="btn-whats">FALAR COM ESPECIALISTA AGORA</a>
-</section>
-
+        <a href="https://wa.me/5521979667707?text=Olá Cafer! Fiz o comparativo MEI vs ME e quero uma consultoria para decidir meu próximo passo." class="btn-whats">PEDIR CONSULTORIA ESTRATÉGICA</a>
+    </section>
 </body>
 </html>
