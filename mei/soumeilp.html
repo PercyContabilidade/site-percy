@@ -3,71 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Cheguei, Sou MEI! - Percy Contabilidade</title>
+    <title>Cheguei, Sou MEI! - CAFTER PERCY</title>
     <style>
         :root { --gold: #c5a059; --dark: #0a192f; }
         body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--dark); color: #fff; display: flex; flex-direction: column; min-height: 100vh; }
-        .site-header { padding: 20px; text-align: center; background: rgba(10,25,47,0.9); border-bottom: 2px solid var(--gold); }
-        .logo-header { width: 130px; }
+        
+        /* CABEÇALHO PADRONIZADO (IGUAL AO QUESTIONÁRIO) */
+        .site-header { 
+            padding: 15px 20px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(197,160,89,0.2); 
+            background: rgba(10,25,47,0.9); 
+        }
+        
+        .logo-header { width: 80px; border-radius: 8px; }
+        
+        .back-link { 
+            color: var(--gold); 
+            text-decoration: none; 
+            font-size: 0.85rem; 
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 12px;
+            border: 1px solid rgba(197,160,89,0.3);
+            border-radius: 6px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .back-link:hover { 
+            background: var(--gold);
+            color: var(--dark); 
+        }
+
         .main-content { flex: 1; max-width: 1100px; margin: 0 auto; padding: 40px 20px; text-align: center; }
-        .intro-text h1 { font-size: 2.5rem; color: var(--gold); margin-bottom: 10px; }
+        .intro-text h1 { font-size: 2.5rem; color: var(--gold); margin-bottom: 10px; font-weight: 800; }
         
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
         .btn-service { background: rgba(255,255,255,0.05); border: 1px solid rgba(197,160,89,0.3); border-radius: 15px; padding: 30px 20px; text-decoration: none; color: #fff; transition: 0.3s; display: flex; flex-direction: column; align-items: center; }
-        .btn-service:hover { background: var(--gold); color: var(--dark); transform: translateY(-5px); border-color: var(--gold); }
+        .btn-service:hover { background: var(--gold); color: var(--dark); transform: translateY(-5px); }
         .btn-service span { font-weight: 800; font-size: 1.1rem; text-transform: uppercase; }
 
-        .btn-special { border: 2px solid var(--gold); box-shadow: 0 0 15px rgba(197,160,89,0.2); background: rgba(197, 160, 89, 0.1); }
+        .btn-special { border: 2px solid var(--gold); background: rgba(197, 160, 89, 0.1); }
         
-        .btn-back { display: inline-block; margin-top: 50px; color: var(--gold); text-decoration: none; font-weight: bold; border: 1px solid var(--gold); padding: 10px 25px; border-radius: 50px; }
         .site-footer { padding: 40px 20px; background: #060d1a; text-align: center; border-top: 1px solid rgba(197,160,89,0.2); }
-        .footer-logo { width: 80px; }
+        .footer-logo { width: 80px; opacity: 0.5; }
     </style>
 </head>
 <body>
     <header class="site-header">
-        <a href="/index.html"><video autoplay muted loop playsinline class="logo-header"><source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4"></video></a>
+        <!-- VOLTA PARA O SITE PRINCIPAL -->
+        <a href="/index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            VOLTAR
+        </a>
+        
+        <a href="/index.html">
+            <video autoplay muted loop playsinline class="logo-header">
+                <source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4">
+            </video>
+        </a>
+        
+        <div style="width: 80px;"></div> 
     </header>
 
     <main class="main-content">
         <div class="intro-text">
             <h1>Cheguei, Sou MEI!</h1>
-            <p>O suporte completo para quem está começando o seu legado com inteligência.</p>
+            <p>O suporte especializado de <b>CAFTER PERCY</b> para quem busca o próximo nível.</p>
         </div>
 
         <div class="services-grid">
+            <!-- LINKS INTERNOS -->
             <a href="/mei/questionario.html" class="btn-service btn-special">
                 <span>📝 Perfil MEI de Sucesso</span>
-                <small style="margin-top: 5px; opacity: 0.8;">Avalie o seu momento atual agora.</small>
+                <small style="margin-top: 5px; opacity: 0.8;">Avalie seu momento atual.</small>
             </a>
 
             <a href="/mei/mei-ou-me.html" class="btn-service btn-special">
                 <span>📊 Comparativo MEI vs ME</span>
-                <small style="margin-top: 5px; opacity: 0.8;">Descubra quando é a hora de escalar.</small>
+                <small style="margin-top: 5px; opacity: 0.8;">Descubra quando escalar.</small>
             </a>
 
-            <hr style="grid-column: 1 / -1; border: 0; border-top: 1px solid rgba(197,160,89,0.1); margin: 20px 0;">
-
-            <a href="https://wa.me/5521979667707?text=Olá! Quero abrir o meu MEI." target="_blank" class="btn-service">
+            <!-- WHATSAPP COM MENSAGENS CONFIGURADAS -->
+            <a href="https://wa.me/5521979667707?text=Olá%20Cafter%20Percy!%20Quero%20abrir%20o%20meu%20MEI%20com%20suporte%20especializado." target="_blank" class="btn-service">
                 <span>🚀 Abertura de MEI</span>
             </a>
-            <a href="https://wa.me/5521979667707?text=Olá! Preciso fazer minha declaração anual DASN." target="_blank" class="btn-service">
+            
+            <a href="https://wa.me/5521979667707?text=Olá%20Cafter%20Percy!%20Preciso%20de%20ajuda%20com%20minha%20Declaração%20Anual%20DASN." target="_blank" class="btn-service">
                 <span>📅 Declaração Anual (DASN)</span>
             </a>
-            <a href="https://wa.me/5521979667707?text=Olá! Preciso emitir as minhas guias mensais DAS." target="_blank" class="btn-service">
-                <span>💰 Emissão de Boletos (DAS)</span>
+
+            <a href="https://wa.me/5521979667707?text=Olá%20Cafter%20Percy!%20Preciso%20regularizar%20ou%20emitir%20minhas%20guias%20DAS%20mensais." target="_blank" class="btn-service">
+                <span>💰 Boletos Mensais (DAS)</span>
             </a>
-            <a href="https://wa.me/5521979667707?text=Olá! Meu MEI cresceu e quero passar para LTDA." target="_blank" class="btn-service" style="border-color: #3b82f6;">
+
+            <a href="https://wa.me/5521979667707?text=Olá%20Cafter%20Percy!%20Meu%20negócio%20cresceu%20e%20preciso%20de%20ajuda%20para%20migrar%20para%20Microempresa%20(LTDA)." target="_blank" class="btn-service" style="border-color: #3b82f6;">
                 <span style="color: #3b82f6;">📈 Migrar para LTDA</span>
             </a>
         </div>
-
-        <a href="/index.html" class="btn-back">← VOLTAR AO PORTAL PRINCIPAL</a>
     </main>
 
     <footer class="site-footer">
         <img src="/ativos/images/logopercyatual.jpeg" class="footer-logo">
-        <p>© 2026 PERCY CONTABILIDADE - NEGÓCIOS INTELIGENTES</p>
+        <p style="font-size: 0.8rem; opacity: 0.5; margin-top: 10px;">© 2026 PERCY CONTABILIDADE - NEGÓCIOS INTELIGENTES</p>
     </footer>
 </body>
 </html>
