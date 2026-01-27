@@ -8,7 +8,7 @@
         :root { --gold: #c5a059; --dark: #0a192f; --accent: #3b82f6; }
         body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; background-color: var(--dark); color: #fff; }
         
-        /* CABEÇALHO PADRONIZADO */
+        /* CABEÇALHO PADRONIZADO (RIGOROSAMENTE IGUAL AO QUESTIONÁRIO) */
         .site-header { 
             padding: 15px 20px; 
             display: flex;
@@ -40,37 +40,54 @@
             color: var(--dark); 
         }
 
-        .hero { padding: 60px 20px; text-align: center; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        /* CONTEÚDO DO SIMULADOR */
+        .hero { padding: 60px 20px; text-align: center; background: radial-gradient(circle at top, #1e293b 0%, var(--dark) 100%); }
         .badge { background: rgba(197,160,89,0.2); color: var(--gold); padding: 8px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--gold); }
-        h1 { font-size: 3rem; margin: 20px 0; line-height: 1.1; }
+        h1 { font-size: 2.8rem; margin: 20px 0; line-height: 1.1; font-weight: 800; }
         h1 span { color: var(--gold); }
-        .description { color: #94a3b8; max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; }
+        .description { color: #94a3b8; max-width: 650px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.6; }
         
-        .cards-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 20px; }
-        .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(197,160,89,0.3); padding: 30px; border-radius: 20px; width: 300px; transition: 0.4s; text-align: left; }
-        .card:hover { border-color: var(--gold); transform: translateY(-10px); background: rgba(255,255,255,0.08); }
-        .card h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--gold); }
-        .card p { color: #ccc; line-height: 1.4; font-size: 0.95rem; }
+        .cards-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 20px; max-width: 1000px; margin: 0 auto; }
+        .card { 
+            background: rgba(255,255,255,0.03); 
+            border: 1px solid rgba(197,160,89,0.2); 
+            padding: 35px; 
+            border-radius: 24px; 
+            width: 320px; 
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            text-align: left;
+            backdrop-filter: blur(10px);
+        }
+        .card:hover { border-color: var(--gold); transform: translateY(-10px); background: rgba(255,255,255,0.07); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
+        .card h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--gold); border-bottom: 1px solid rgba(197,160,89,0.1); padding-bottom: 10px; }
+        .card ul { padding: 0; list-style: none; }
+        .card li { margin-bottom: 12px; font-size: 0.95rem; color: #cbd5e1; display: flex; gap: 10px; }
+        .card li::before { content: "✓"; color: var(--gold); font-weight: bold; }
         
         .btn-whats { 
             display: inline-block; 
-            margin-top: 40px; 
+            margin-top: 50px; 
             background: #25d366; 
             color: #fff; 
-            padding: 18px 35px; 
-            border-radius: 50px; 
+            padding: 20px 40px; 
+            border-radius: 12px; 
             text-decoration: none; 
-            font-weight: bold; 
+            font-weight: 800; 
+            font-size: 1.1rem; 
             transition: 0.3s; 
-            box-shadow: 0 10px 20px rgba(37,211,102,0.2);
-            text-align: center;
+            box-shadow: 0 10px 25px rgba(37,211,102,0.3);
+            text-transform: uppercase;
         }
-        .btn-whats:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(37,211,102,0.4); }
+        .btn-whats:hover { transform: scale(1.05); background: #1eb954; }
+
+        .site-footer { padding: 40px; text-align: center; background: #060d1a; border-top: 1px solid rgba(197,160,89,0.1); }
+        .footer-logo { width: 80px; opacity: 0.5; }
     </style>
 </head>
 <body>
 
 <header class="site-header">
+    <!-- BOTÃO VOLTAR PADRONIZADO -->
     <a href="/mei/soumeilp.html" class="back-link">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         VOLTAR
@@ -81,27 +98,47 @@
             <source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4">
         </video>
     </a>
+    
+    <!-- ESPAÇO PARA EQUILÍBRIO -->
     <div style="width: 80px;"></div> 
 </header>
 
 <section class="hero">
-    <span class="badge">Decisão Estratégica Percy</span>
-    <h1>MEI ou ME?<br>Decida o futuro do<br><span>seu negócio.</span></h1>
-    <p class="description">Entenda as diferenças reais e descubra se já é hora de deixar de ser "peixe pequeno" para se tornar o tubarão do seu mercado sob a orientação de <b>CAFTER PERCY</b>.</p>
+    <span class="badge">Análise de Risco Invertido</span>
+    <h1>MEI ou ME?<br>Escalando o seu<br><span>legado.</span></h1>
+    <p class="description">Descubra se o seu negócio já está pronto para o próximo nível de autoridade e faturamento sob a inteligência estratégica de <b>CAFTER PERCY</b>.</p>
 
     <div class="cards-container">
+        <!-- CARD MEI -->
         <div class="card">
-            <h3>🛡️ Sou MEI</h3>
-            <p>Faturamento até 81k/ano. Imposto fixo e baixo. Ideal para o início da jornada solo e formalização rápida.</p>
+            <h3>🛡️ Perfil MEI</h3>
+            <ul>
+                <li>Faturamento até R$ 81k/ano</li>
+                <li>Limite de 1 funcionário</li>
+                <li>Guia DAS simplificada</li>
+                <li>Ideal para validação inicial</li>
+            </ul>
         </div>
+        
+        <!-- CARD ME -->
         <div class="card" style="border-color: var(--accent);">
-            <h3 style="color: var(--accent);">🚀 Sou ME (LTDA)</h3>
-            <p>Faturamento ilimitado. Contrate equipe, proteja seu patrimônio e ganhe status de grande empresa no mercado.</p>
+            <h3 style="color: var(--accent);">🚀 Perfil ME (LTDA)</h3>
+            <ul>
+                <li>Faturamento ilimitado (escala real)</li>
+                <li>Pode ter sócios e equipe</li>
+                <li>Blindagem jurídica patrimonial</li>
+                <li>Status de autoridade no mercado</li>
+            </ul>
         </div>
     </div>
 
-    <a href="https://wa.me/5521979667707?text=Olá Cafter Percy! Fiz o comparativo MEI vs ME e quero saber qual o melhor caminho para eu crescer agora." class="btn-whats">PEDIR CONSULTORIA COM CAFTER PERCY</a>
+    <a href="https://wa.me/5521979667707?text=Olá Cafter Percy! Fiz o comparativo MEI vs ME e quero saber qual o melhor caminho para eu crescer agora." class="btn-whats">CONSTRUIR ESTRATÉGIA COM CAFTER PERCY</a>
 </section>
+
+<footer class="site-footer">
+    <img src="/ativos/images/logopercyatual.jpeg" class="footer-logo">
+    <p style="font-size: 0.8rem; opacity: 0.5; margin-top: 10px;">© 2026 PERCY CONTABILIDADE - NEGÓCIOS INTELIGENTES</p>
+</footer>
 
 </body>
 </html>
