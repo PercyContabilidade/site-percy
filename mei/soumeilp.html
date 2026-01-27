@@ -6,9 +6,9 @@
     <title>Cheguei, Sou MEI! - CAFTER PERCY</title>
     <style>
         :root { --gold: #c5a059; --dark: #0a192f; }
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--dark); color: #fff; display: flex; flex-direction: column; min-height: 100vh; }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--dark); color: #fff; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
         
-        /* CABEÇALHO PADRONIZADO (IGUAL AO QUESTIONÁRIO) */
+        /* CABEÇALHO PADRONIZADO */
         .site-header { 
             padding: 15px 20px; 
             display: flex;
@@ -35,10 +35,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .back-link:hover { 
-            background: var(--gold);
-            color: var(--dark); 
-        }
+        .back-link:hover { background: var(--gold); color: var(--dark); }
 
         .main-content { flex: 1; max-width: 1100px; margin: 0 auto; padding: 40px 20px; text-align: center; }
         .intro-text h1 { font-size: 2.5rem; color: var(--gold); margin-bottom: 10px; font-weight: 800; }
@@ -47,27 +44,52 @@
         .btn-service { background: rgba(255,255,255,0.05); border: 1px solid rgba(197,160,89,0.3); border-radius: 15px; padding: 30px 20px; text-decoration: none; color: #fff; transition: 0.3s; display: flex; flex-direction: column; align-items: center; }
         .btn-service:hover { background: var(--gold); color: var(--dark); transform: translateY(-5px); }
         .btn-service span { font-weight: 800; font-size: 1.1rem; text-transform: uppercase; }
-
         .btn-special { border: 2px solid var(--gold); background: rgba(197, 160, 89, 0.1); }
         
+        /* WHATSAPP FLUTUANTE COM MOVIMENTO SUAVE */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #1eb954; }
+
         .site-footer { padding: 40px 20px; background: #060d1a; text-align: center; border-top: 1px solid rgba(197,160,89,0.2); }
         .footer-logo { width: 80px; opacity: 0.5; }
     </style>
 </head>
 <body>
     <header class="site-header">
-        <!-- VOLTA PARA O SITE PRINCIPAL -->
         <a href="/index.html" class="back-link">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
             VOLTAR
         </a>
-        
         <a href="/index.html">
             <video autoplay muted loop playsinline class="logo-header">
                 <source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4">
             </video>
         </a>
-        
         <div style="width: 80px;"></div> 
     </header>
 
@@ -78,35 +100,33 @@
         </div>
 
         <div class="services-grid">
-            <!-- LINKS INTERNOS -->
             <a href="/mei/questionario.html" class="btn-service btn-special">
                 <span>📝 Perfil MEI de Sucesso</span>
                 <small style="margin-top: 5px; opacity: 0.8;">Avalie seu momento atual.</small>
             </a>
-
             <a href="/mei/mei-ou-me.html" class="btn-service btn-special">
                 <span>📊 Comparativo MEI vs ME</span>
-                <small style="margin-top: 5px; opacity: 0.8;">Descubra quando escalar.</small>
+                <small style="margin-top: 5px; opacity: 0.8;">A hora certa de escalar.</small>
             </a>
-
-            <!-- WHATSAPP COM MENSAGENS CONFIGURADAS -->
             <a href="https://wa.me/5521979667707?text=Olá%20Cafter%20Percy!%20Quero%20abrir%20o%20meu%20MEI%20com%20suporte%20especializado." target="_blank" class="btn-service">
                 <span>🚀 Abertura de MEI</span>
             </a>
-            
             <a href="https://wa.me/5521979667707?text=Olá%20Cafter%20Percy!%20Preciso%20de%20ajuda%20com%20minha%20Declaração%20Anual%20DASN." target="_blank" class="btn-service">
                 <span>📅 Declaração Anual (DASN)</span>
             </a>
-
             <a href="https://wa.me/5521979667707?text=Olá%20Cafter%20Percy!%20Preciso%20regularizar%20ou%20emitir%20minhas%20guias%20DAS%20mensais." target="_blank" class="btn-service">
                 <span>💰 Boletos Mensais (DAS)</span>
             </a>
-
             <a href="https://wa.me/5521979667707?text=Olá%20Cafter%20Percy!%20Meu%20negócio%20cresceu%20e%20preciso%20de%20ajuda%20para%20migrar%20para%20Microempresa%20(LTDA)." target="_blank" class="btn-service" style="border-color: #3b82f6;">
                 <span style="color: #3b82f6;">📈 Migrar para LTDA</span>
             </a>
         </div>
     </main>
+
+    <!-- BOTÃO FLUTUANTE ATIVO -->
+    <a href="https://wa.me/5521979667707?text=Olá%20Cafter%20Percy!%20Estou%20no%20Portal%20MEI%20e%20gostaria%20de%20tirar%20uma%20dúvida." class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 32 32" style="width:32px; height:32px; fill:white;"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825.737 5.48 2.025 7.788l-2.025 7.212 7.425-1.95c2.25 1.213 4.825 1.95 7.575 1.95 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.333c-2.45 0-4.738-.638-6.725-1.75l-.488-.275-4.413 1.163 1.188-4.225-.3-.488c-1.225-1.975-1.938-4.313-1.938-6.758 0-7.363 5.988-13.35 13.35-13.35s13.35 5.988 13.35 13.35-5.988 13.35-13.35 13.35zM22.513 18.913c-.35-.175-2.075-1.025-2.4-1.138-.325-.113-.563-.175-.8.175s-.913 1.138-1.113 1.363c-.2.225-.4.25-.75.075-.35-.175-1.488-.55-2.825-1.738-1.038-.925-1.738-2.063-1.938-2.413-.2-.35-.025-.538.15-.713.163-.163.35-.413.525-.613.175-.2.225-.35.35-.575.113-.225.05-.425-.025-.6-.075-.175-.8-1.925-1.1-2.638-.288-.713-.588-.613-.8-.613h-.688c-.238 0-.613.088-.938.438s-1.238 1.213-1.238 2.95 1.263 3.425 1.438 3.663c.175.238 2.488 3.8 6.025 5.338.838.363 1.5.588 2.013.75.838.263 1.6.225 2.213.138.675-.1 2.075-.85 2.375-1.675s.3-1.525.213-1.675c-.088-.138-.325-.213-.675-.4z"/></svg>
+    </a>
 
     <footer class="site-footer">
         <img src="/ativos/images/logopercyatual.jpeg" class="footer-logo">
