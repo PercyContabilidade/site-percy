@@ -7,35 +7,101 @@
     <style>
         :root { --gold: #c5a059; --dark: #0a192f; }
         body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; background-color: var(--dark); color: #fff; }
-        .site-header { padding: 15px; text-align: center; border-bottom: 1px solid rgba(197,160,89,0.2); background: rgba(10,25,47,0.9); }
-        .logo-header { width: 100px; border-radius: 8px; }
-        .container { max-width: 700px; margin: 40px auto; padding: 30px; background: rgba(255,255,255,0.05); border: 1px solid var(--gold); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        
+        /* CABEÇALHO COM NAVEGAÇÃO */
+        .site-header { 
+            padding: 15px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(197,160,89,0.2); 
+            background: rgba(10,25,47,0.9); 
+            padding: 10px 20px;
+        }
+        
+        .logo-header { width: 80px; border-radius: 8px; }
+        
+        .back-link { 
+            color: var(--gold); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
+        .back-link:hover { color: #fff; }
+
+        /* CONTAINER DO FORMULÁRIO */
+        .container { 
+            max-width: 700px; 
+            margin: 40px auto; 
+            padding: 30px; 
+            background: rgba(255,255,255,0.05); 
+            border: 1px solid var(--gold); 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+        }
+        
         h2 { color: var(--gold); border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-top: 0; }
         hr { border: 0; border-top: 1px solid rgba(197,160,89,0.2); margin: 20px 0; }
         p { font-weight: bold; color: var(--gold); margin-bottom: 15px; }
+        
         label { display: block; margin-bottom: 12px; cursor: pointer; transition: 0.3s; padding: 5px; border-radius: 5px; }
         label:hover { background: rgba(197,160,89,0.1); }
-        input[type="text"] { background: transparent; border: none; border-bottom: 1px dashed var(--gold); color: #fff; padding: 5px; width: 80%; outline: none; }
-        button { background-color: var(--gold); color: var(--dark); padding: 18px 20px; border: none; border-radius: 10px; cursor: pointer; display: block; width: 100%; font-size: 1.2em; font-weight: bold; text-transform: uppercase; margin-top: 30px; transition: 0.4s; }
+        
+        input[type="text"] { 
+            background: transparent; 
+            border: none; 
+            border-bottom: 1px dashed var(--gold); 
+            color: #fff; 
+            padding: 5px; 
+            width: 80%; 
+            outline: none; 
+        }
+        
+        /* BOTÃO DE ENVIO - FOCO CAFTER PERCY */
+        button { 
+            background-color: var(--gold); 
+            color: var(--dark); 
+            padding: 18px 20px; 
+            border: none; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            display: block; 
+            width: 100%; 
+            font-size: 1.2em; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            margin-top: 30px; 
+            transition: 0.4s; 
+        }
         button:hover { background: #fff; transform: scale(1.02); }
+
         .site-footer { padding: 30px; text-align: center; background: #060d1a; margin-top: 50px; }
         .footer-logo { width: 80px; opacity: 0.6; }
     </style>
 </head>
 <body>
     <header class="site-header">
+        <!-- LINK DE RETORNO ESTRATÉGICO -->
+        <a href="/mei/soumeilp.html" class="back-link">← VOLTAR AO PORTAL</a>
+        
         <a href="/mei/soumeilp.html">
             <video autoplay muted loop playsinline class="logo-header">
                 <source src="/ativos/videos/logo-animada.gif.mp4" type="video/mp4">
             </video>
         </a>
+        <div style="width: 80px;"></div> <!-- Equilíbrio visual -->
     </header>
 
     <div class="container">
         <form name="formulario-mei" method="POST" data-netlify="true" action="/sucesso.html">
             <input type="hidden" name="form-name" value="formulario-mei" />
+            
             <h2>✅ Perfil do MEI de Sucesso</h2>
-            <p>Descubra o que torna um MEI imparável sob a mentoria de CAFTER PERCY!</p>
+            <p>Descubra o que torna um MEI imparável sob a mentoria estratégica de CAFTER PERCY!</p>
 
             <p>🟡 1. Qual é o seu segmento de atuação?</p>
             <label><input type="radio" name="segmento" value="Alimentação" required> Alimentação</label>
@@ -62,14 +128,14 @@
             <p>✨ Complete a frase: Ser MEI de sucesso é...</p>
             <input type="text" name="definicao" style="width: 100%;" placeholder="Sua visão de futuro..." required>
             
-            <!-- CORREÇÃO REALIZADA ABAIXO -->
+            <!-- NOMENCLATURA CORRIGIDA -->
             <button type="submit">Enviar Respostas ao CAFTER PERCY</button>
         </form>
     </div>
 
     <footer class="site-footer">
         <img src="/ativos/images/logopercyatual.jpeg" class="footer-logo"><br>
-        <small>© 2026 Percy Contabilidade - Inteligência Contábil</small>
+        <small>© 2026 Percy Contabilidade - Negócios Inteligentes</small>
     </footer>
 </body>
 </html>
